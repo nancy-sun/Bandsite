@@ -1,0 +1,140 @@
+@use "./variables"as *;
+@use "./fonts"as *;
+@use "./mixins"as *;
+
+* {
+    margin: 0;
+    font-family: Avenir Next;
+    padding: 0;
+}
+
+li {
+    list-style-type: none;
+}
+
+a {
+    text-decoration: none;
+    color: $primary-white;
+}
+
+
+
+.nav {
+    background-color: $primary-black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 1.2rem;
+
+    &__logo {
+        height: 1.45rem;
+    }
+
+    &__list {
+        display: flex;
+        width: 100%;
+        justify-content: space-around;
+        align-items: space-between;
+
+        &-item {
+            font-size: 1rem;
+            padding: 0.5rem 0 0.7rem;
+            width: 100%;
+            text-align: center;
+
+            & a {
+                color: $secondary-mercury;
+                width: 100%;
+            }
+
+            &--active,
+            &:hover {
+                border-bottom: solid white 4px;
+
+                & a {
+                    color: $primary-white;
+                }
+            }
+
+        }
+    }
+}
+
+.hero {
+    display: flex;
+    height: 15rem;
+
+    &__title {
+        font-size: 1.7rem;
+        font-weight: 600;
+        position: relative;
+        color: $primary-white;
+        top: 6.5rem;
+        left: 1.2rem;
+        line-height: 2rem;
+    }
+}
+
+.footer {
+    background: $primary-black;
+    color: $primary-white;
+    padding: 2rem 1rem 1.5rem;
+
+    &__head {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    &__title {
+        font-size: 1.7rem;
+        font-weight: 600;
+        line-height: 2rem;
+    }
+
+    &__social {
+        display: flex;
+        width: 38%;
+        justify-content: space-between;
+        padding-bottom: 2rem;
+
+        &-icon {
+            height: 100%;
+        }
+    }
+
+    &__team {
+        display: flex;
+        flex-direction: column;
+        gap: 1.8rem;
+        padding-bottom: 5rem;
+
+    }
+
+    &__contact {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+
+        &-name {
+            font-size: 1rem;
+            font-weight: 500;
+        }
+
+        &-address {
+            font-style: normal;
+            font-size: 1rem;
+        }
+
+    }
+
+    &__logo {
+        height: 1.45rem;
+    }
+
+    &__copyright-text {
+        padding-top: 1rem;
+        font-size: 0.8rem;
+    }
+
+}

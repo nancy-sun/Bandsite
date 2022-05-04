@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BANDSITE</title>
+    <link rel="stylesheet" href="./styles/bio.css">
 </head>
 
 <body>
@@ -15,75 +16,85 @@
                 <img class="nav__logo logo" src="./assets/Logo/Logo-bandsite.svg" alt="bandsite logo">
             </a>
             <ul class="nav__list">
-                <li>Biography</li>
-                <li>Shows</li>
+                <li class="nav__list-item nav__list-item--active"><a href="./index.html">Biography</a></li>
+                <li class="nav__list-item"><a href="#">Shows</a></li>
             </ul>
         </nav>
         <div class="hero">
-            <img class="hero__img" src="./assets/Images/hero-bio.jpg" alt="bio image">
             <h1 class="hero__title">The Bees Knees</h1>
         </div>
     </header>
+
     <main>
-        <article class="about">
-            <h2 class="about__title">About the Musicians</h2>
-            <div class="about__head">
-                <img class="about__img" src="./assets/Images/band.jpg" alt="band image">
-                <h3 class="about__quote">
+        <article class="bio">
+            <h2 class="bio__title">About the Musicians</h2>
+            <div class="bio__head">
+                <img class="bio__img" src="./assets/Images/band.jpg" alt="band image">
+                <p class="bio__quote">
                     “We push each other to be the best. It’s not uncommon for one of us to say ‘this needs to be better,
                     back to the drawing board’”
-                </h3>
-                <h4 class="about__quotee">- Bryan Teddy, lead vocalist of The Bees Knees</h4>
+                </p>
+                <p class="bio__quotee">- Bryan Teddy, lead vocalist of The Bees Knees</p>
             </div>
-            <div class="about__content">
+            <div class="about">
                 <h5 class="about__subtitle">The Bees Knees</h5>
-                <p class="about__text--left">The Bees Knees is a pop rock band originating from San Francisco,
-                    California. The band consists of lead vocalist Bryan Teddy, guitarist Mack Tolkens, guitarist Andrew
-                    Green, bassist Kent Zulkee and drummer Freddie Fischer. The band achieved its first commercial
-                    success as an unsigned act, drawing attention from manager Cam Adams. Having worked with other
-                    popular acts (The Elephant In The Room, One Trick Pony, The Cat’s Meow), Adams was confident the
-                    band could succeed even further, pushing them to sign with Magenta Records. </p>
-                <p class="about__text--right">From there, the band has soared, gaining international recognition and
-                    ranking in the top 10 on the Poster Charts. New fans immediately fell in love with the band’s
-                    original and organic attitude, solidifying their place as one of the hottest and fastest up and
-                    coming acts of this century. Fans affectionately refer to themselves as “The Hive” and are drawn to
-                    their candid and authentic performances on stage. Looking forward to touring in the future, The Bees
-                    Knees are currently recording their second studio album, looking to be released in late 2021.</p>
+                <div class="about__content">
+                    <p class="about__text about__text--left">The Bees Knees is a pop rock band originating from San
+                        Francisco,
+                        California. The band consists of lead vocalist Bryan Teddy, guitarist Mack Tolkens, guitarist
+                        Andrew
+                        Green, bassist Kent Zulkee and drummer Freddie Fischer. The band achieved its first commercial
+                        success as an unsigned act, drawing attention from manager Cam Adams. Having worked with other
+                        popular acts (The Elephant In The Room, One Trick Pony, The Cat’s Meow), Adams was confident the
+                        band could succeed even further, pushing them to sign with Magenta Records. </p>
+                    <p class="about__text about__text--right">From there, the band has soared, gaining international
+                        recognition and
+                        ranking in the top 10 on the Poster Charts. New fans immediately fell in love with the band’s
+                        original and organic attitude, solidifying their place as one of the hottest and fastest up and
+                        coming acts of this century. Fans affectionately refer to themselves as “The Hive” and are drawn
+                        to
+                        their candid and authentic performances on stage. Looking forward to touring in the future, The
+                        Bees
+                        Knees are currently recording their second studio album, looking to be released in late 2021.
+                    </p>
+                </div>
             </div>
         </article>
         <section class="gallery">
             <h2 class="gallery__title">Photo Gallery</h2>
-            <div>
-                <img src="./assets/Images/Photo-gallery-1.jpg" alt="" class="gallery__img1">
-                <img src="./assets/Images/Photo-gallery-2.jpg" alt="" class="gallery__img2">
-                <img src="./assets/Images/Photo-gallery-3.jpg" alt="" class="gallery__img3">
-                <img src="./assets/Images/Photo-gallery-4.jpg" alt="" class="gallery__img4">
-                <img src="./assets/Images/Photo-gallery-5.jpg" alt="" class="gallery__img5">
-                <img src="./assets/Images/Photo-gallery-6.jpg" alt="" class="gallery__img6">
-                <img src="./assets/Images/Photo-gallery-7.jpg" alt="" class="gallery__img7">
-                <img src="./assets/Images/Photo-gallery-8.jpg" alt="" class="gallery__img8">
-                <img src="./assets/Images/Photo-gallery-9.jpg" alt="" class="gallery__img9">
+            <div class="gallery__collection">
+                <img src="./assets/Images/Photo-gallery-1.jpg" alt="" class="gallery__img gallery__img1">
+                <img src="./assets/Images/Photo-gallery-2.jpg" alt="" class="gallery__img gallery__img2">
+                <img src="./assets/Images/Photo-gallery-3.jpg" alt="" class="gallery__img gallery__img3">
+                <img src="./assets/Images/Photo-gallery-4.jpg" alt="" class="gallery__img gallery__img4">
+                <img src="./assets/Images/Photo-gallery-5.jpg" alt="" class="gallery__img gallery__img5">
+                <img src="./assets/Images/Photo-gallery-6.jpg" alt="" class="gallery__img gallery__img6">
+                <img src="./assets/Images/Photo-gallery-7.jpg" alt="" class="gallery__img gallery__img7">
+                <img src="./assets/Images/Photo-gallery-8.jpg" alt="" class="gallery__img gallery__img8">
+                <img src="./assets/Images/Photo-gallery-9.jpg" alt="" class="gallery__img gallery__img9">
             </div>
         </section>
     </main>
+
     <footer class="footer">
-        <div class="footer__headline">
-            <h2 class="footer__title">Get in touch</h2>
-            <div class="footer__social-media">
-                <a href="http://www.instagram.com">
-                    <img src="./assets/Icons/SVG/Icon-instagram.svg" alt="instagram icon" class="footer__icon">
+        <div class="footer__head">
+            <h2 class="footer__title">Get in Touch</h2>
+            <div class="footer__social">
+                <a href="http://www.instagram.com" target="_blank">
+                    <img src="./assets/Icons/SVG/Icon-instagram.svg" alt="instagram icon" class="footer__social-icon">
                 </a>
-                <a href="http://www.facebook.com">
-                    <img src="./assets/Icons/SVG/Icon-facebook.svg" alt="facebook icon" class="footer__icon">
+                <a href="http://www.facebook.com" target="_blank">
+                    <img src="./assets/Icons/SVG/Icon-facebook.svg" alt="facebook icon" class="footer__social-icon">
                 </a>
-                <a href="http://www.twitter.com">
-                    <img src="./assets/Icons/SVG/Icon-twitter.svg" alt="twitter icon" class="footer__icon">
+                <a href="http://www.twitter.com" target="_blank">
+                    <img src="./assets/Icons/SVG/Icon-twitter.svg" alt="twitter icon" class="footer__social-icon">
                 </a>
             </div>
         </div>
-        <div class="footer__contact">
-            <section class="footer__contact-info">
-                <h6 class="footer__contact-name">Cam Adams <br>
+        <div class="footer__team">
+            <section class="footer__contact">
+                <h6 class="footer__contact-name">
+                    Cam Adams <br>
                     The Bees Knees Management
                 </h6>
                 <address class="footer__contact-address">
