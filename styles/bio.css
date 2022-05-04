@@ -46,13 +46,15 @@ a {
 }
 .nav__list-item {
   font-size: 1rem;
-  padding: 0.5rem 0 0.7rem;
   width: 100%;
   text-align: center;
+  display: flex;
+  justify-content: stretch;
 }
 .nav__list-item a {
   color: #E1E1E1;
   width: 100%;
+  padding: 0.5rem 0 0.7rem;
 }
 .nav__list-item--active, .nav__list-item:hover {
   border-bottom: solid white 4px;
@@ -105,18 +107,24 @@ a {
   gap: 1.8rem;
   padding-bottom: 5rem;
 }
-.footer__contact {
+.footer .contact {
   display: flex;
   flex-direction: column;
   gap: 1rem;
 }
-.footer__contact-name {
+.footer .contact__name {
   font-size: 1rem;
-  font-weight: 500;
+  font-weight: 600;
+  line-height: 1.45rem;
 }
-.footer__contact-address {
+.footer .contact__address {
   font-style: normal;
   font-size: 1rem;
+  line-height: 1.3rem;
+}
+.footer .contact__email {
+  font-size: 1rem;
+  line-height: 1.3rem;
 }
 .footer__logo {
   height: 1.45rem;
@@ -162,7 +170,7 @@ main {
   line-height: 1.8rem;
 }
 .bio__quotee {
-  font-size: 1.05rem;
+  font-size: 1.1rem;
   font-weight: 600;
   line-height: 1.8rem;
   margin: 0.5rem 0 1.8rem;
@@ -173,8 +181,8 @@ main {
   flex-direction: column;
 }
 .about__subtitle {
-  font-size: 1.05rem;
-  font-weight: 500;
+  font-size: 1.1rem;
+  font-weight: 600;
   margin-bottom: 1rem;
   line-height: 1rem;
 }

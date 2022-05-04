@@ -2,6 +2,7 @@
 @use "./partials/global"as *;
 @use "./partials/fonts"as *;
 @use "./partials/mixins"as*;
+@use "./partials/reset"as*;
 
 .hero {
     background: linear-gradient(rgba(50, 50, 50, 0.5), rgba(50, 50, 50, 0.5)), url("../assets/Images/hero-bio.jpg");
@@ -43,7 +44,7 @@ main {
     }
 
     &__quotee {
-        font-size: 1.05rem;
+        font-size: 1.1rem;
         font-weight: 600;
         line-height: 1.8rem;
         margin: 0.5rem 0 1.8rem;
@@ -55,8 +56,8 @@ main {
     flex-direction: column;
 
     &__subtitle {
-        font-size: 1.05rem;
-        font-weight: 500;
+        font-size: 1.1rem;
+        font-weight: 600;
         margin-bottom: 1rem;
         line-height: 1rem;
     }

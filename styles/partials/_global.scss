@@ -1,12 +1,8 @@
 @use "./variables"as *;
 @use "./fonts"as *;
 @use "./mixins"as *;
+@use "./reset"as*;
 
-* {
-    margin: 0;
-    font-family: Avenir Next;
-    padding: 0;
-}
 
 li {
     list-style-type: none;
@@ -16,8 +12,6 @@ a {
     text-decoration: none;
     color: $primary-white;
 }
-
-
 
 .nav {
     background-color: $primary-black;
@@ -38,13 +32,16 @@ a {
 
         &-item {
             font-size: 1rem;
-            padding: 0.5rem 0 0.7rem;
             width: 100%;
             text-align: center;
+            display: flex;
+            justify-content: stretch;
 
             & a {
                 color: $secondary-mercury;
                 width: 100%;
+                padding: 0.5rem 0 0.7rem;
+
             }
 
             &--active,
@@ -111,21 +108,28 @@ a {
 
     }
 
-    &__contact {
+
+    .contact {
         display: flex;
         flex-direction: column;
         gap: 1rem;
 
-        &-name {
+        &__name {
             font-size: 1rem;
-            font-weight: 500;
+            font-weight: 600;
+            line-height: 1.45rem;
         }
 
-        &-address {
+        &__address {
             font-style: normal;
             font-size: 1rem;
+            line-height: 1.3rem;
         }
 
+        &__email {
+            font-size: 1rem;
+            line-height: 1.3rem;
+        }
     }
 
     &__logo {
