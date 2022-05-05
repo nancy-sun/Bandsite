@@ -54,6 +54,7 @@ main {
 .about {
     display: flex;
     flex-direction: column;
+    padding-bottom: 0.3rem;
 
     &__subtitle {
         font-size: 1.1rem;
@@ -73,7 +74,11 @@ main {
 
 .gallery {
     background-color: $secondary-alabaster;
-    padding: 1.3rem 1rem;
+    padding: 1.5rem 1rem 1.3rem;
+
+    @include tablet {
+        padding: 1.5rem 2.2rem 2rem;
+    }
 
     &__title {
         @extend .bio__title;
@@ -83,9 +88,19 @@ main {
         display: flex;
         flex-direction: column;
         gap: 1.2rem;
+
+        @include tablet {
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
     }
 
     &__img {
         width: 100%;
+
+        @include tablet {
+            width: 31%;
+        }
     }
 }
