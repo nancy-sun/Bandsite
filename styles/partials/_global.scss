@@ -3,13 +3,7 @@
 @use "./mixins"as *;
 @use "./reset"as*;
 
-
-li {
-    list-style-type: none;
-}
-
 a {
-    text-decoration: none;
     color: $primary-white;
 }
 
@@ -31,7 +25,7 @@ a {
 
         @include tablet {
             height: 1.1rem;
-            padding: 1.3rem 2rem 1.1rem;
+            padding: 1.5rem 2.2rem 1.1rem;
         }
     }
 
@@ -61,6 +55,10 @@ a {
                 color: $secondary-mercury;
                 width: 100%;
                 padding: 0.5rem 0 0.7rem;
+
+                @include tablet {
+                    padding-bottom: 0.3rem;
+                }
             }
 
             &--active,
@@ -81,7 +79,7 @@ a {
     height: 15rem;
 
     @include tablet {
-        height: 30rem;
+        height: 28rem;
     }
 
     &__title {
@@ -96,8 +94,8 @@ a {
         @include tablet {
             font-size: 3.7rem;
             line-height: 4rem;
-            top: 14.7rem;
-            left: 2.5rem;
+            top: 12rem;
+            left: 2.2rem;
         }
     }
 }
@@ -108,7 +106,7 @@ a {
     padding: 2rem 1rem 1.5rem;
 
     @include tablet {
-        padding: 2.65rem 2rem 2.5rem;
+        padding: 2.65rem 2.2rem 2.5rem;
     }
 
     &__head {
@@ -130,7 +128,7 @@ a {
         line-height: 2rem;
 
         @include tablet {
-            font-size: 2.3rem;
+            font-size: 2.1rem;
             line-height: 3rem;
         }
     }
