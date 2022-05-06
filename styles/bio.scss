@@ -115,6 +115,10 @@
         padding: 2.1rem 2.2rem 2rem;
     }
 
+    @include desktop {
+        padding: 2.1rem 8rem 2rem;
+    }
+
     &__title {
         @extend .bio__title;
         letter-spacing: 0.3px;
@@ -130,6 +134,7 @@
             flex-direction: row;
             flex-wrap: wrap;
             justify-content: space-between;
+            gap: 1.4rem;
         }
     }
 
@@ -137,7 +142,11 @@
         width: 100%;
 
         @include tablet {
-            width: 31%;
+            width: 13.5rem;
+        }
+
+        @include desktop {
+            width: 20rem;
         }
     }
 }

@@ -29,7 +29,8 @@ a {
         }
 
         @include desktop {
-            padding: 2rem 1rem 1.8rem 8rem;
+            height: 1.2rem;
+            padding: 2.1rem 1rem 1.8rem 8rem;
         }
     }
 
@@ -42,23 +43,33 @@ a {
             gap: 3rem;
         }
 
+        @include desktop {
+            gap: 2.5rem;
+        }
+
         &-item {
             font-size: 1rem;
             width: 100%;
             text-align: center;
             display: flex;
             justify-content: center;
-            align-items: center;
-
+            align-items: stretch;
 
             @include tablet {
                 font-size: 0.85rem;
+                padding-top: 0.9rem;
+            }
+
+            @include desktop {
+                font-size: 0.85rem;
+                padding-top: 1.5rem;
             }
 
             & a {
                 color: $secondary-mercury;
                 width: 100%;
                 padding: 0.5rem 0 0.7rem;
+
 
                 @include tablet {
                     padding-bottom: 0.3rem;
@@ -123,6 +134,10 @@ a {
         padding: 2.65rem 2.2rem 2.5rem;
     }
 
+    @include desktop {
+        padding: 2.7rem 8rem 2.8rem;
+    }
+
     &__head {
         display: flex;
         flex-direction: column;
@@ -132,6 +147,11 @@ a {
             display: flex;
             flex-direction: row;
             align-items: center;
+            gap: 2.4rem;
+        }
+
+        @include desktop {
+            align-items: baseline;
             gap: 2.4rem;
         }
     }
@@ -144,6 +164,10 @@ a {
         @include tablet {
             font-size: 2.1rem;
             line-height: 3rem;
+        }
+
+        @include desktop {
+            font-size: 2.3rem;
         }
     }
 
@@ -159,6 +183,11 @@ a {
             width: 18%;
             padding: 0 0.9rem;
             height: 40%;
+        }
+
+        @include desktop {
+            width: 7.7rem;
+            height: 1.5rem;
         }
 
         &-icon {
@@ -178,6 +207,10 @@ a {
             flex-direction: row;
             padding: 2.2rem 0 1.2rem;
             justify-content: space-between;
+        }
+
+        @include desktop {
+            padding: 2.2rem 17.6rem 1.8rem 0;
         }
     }
 
@@ -199,6 +232,12 @@ a {
             position: relative;
             bottom: 15.3rem;
             left: 36.4rem;
+        }
+
+        @include desktop {
+            height: 1.1rem;
+            position: relative;
+            left: 58rem;
         }
     }
 }
