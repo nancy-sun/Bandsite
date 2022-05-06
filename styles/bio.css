@@ -54,6 +54,11 @@ a {
     padding: 1.5rem 2.2rem 1.1rem;
   }
 }
+@media (min-width: 1280px) {
+  .nav__logo {
+    padding: 2rem 1rem 1.8rem 8rem;
+  }
+}
 .nav__list {
   display: flex;
   width: 100%;
@@ -103,6 +108,11 @@ a {
     height: 28rem;
   }
 }
+@media (min-width: 1280px) {
+  .hero {
+    height: 39.5rem;
+  }
+}
 .hero__title {
   font-size: 1.7rem;
   font-weight: 600;
@@ -118,6 +128,13 @@ a {
     line-height: 4rem;
     top: 12rem;
     left: 2.2rem;
+  }
+}
+@media (min-width: 1280px) {
+  .hero__title {
+    font-size: 3.45rem;
+    top: 18rem;
+    left: 8rem;
   }
 }
 
