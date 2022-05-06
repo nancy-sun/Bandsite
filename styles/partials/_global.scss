@@ -1,5 +1,5 @@
 @use "./variables"as *;
-@use "./fonts"as *;
+@use "./typefaces"as *;
 @use "./mixins"as *;
 @use "./reset"as*;
 
@@ -143,7 +143,7 @@ a {
             display: flex;
             flex-direction: row;
             width: 18%;
-            padding: 0;
+            padding: 0 0.9rem;
             height: 40%;
         }
 
@@ -170,6 +170,7 @@ a {
     &__copyright {
         padding-top: 1rem;
         font-size: 0.8rem;
+        color: $secondary-alabaster;
 
         @include tablet {
             padding: 0;
@@ -183,7 +184,7 @@ a {
             height: 1.2rem;
             position: relative;
             bottom: 15.3rem;
-            left: 36.8rem;
+            left: 36.4rem;
         }
     }
 }
@@ -214,6 +215,7 @@ a {
         font-style: normal;
         font-size: 1rem;
         line-height: 1.3rem;
+        color: $secondary-alabaster;
 
         @include tablet {
             font-size: 0.9rem;
@@ -223,6 +225,7 @@ a {
 
     &__email {
         font-size: 1rem;
+        color: $secondary-alabaster;
 
         @include tablet {
             font-size: 0.9rem;
