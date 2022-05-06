@@ -19,9 +19,17 @@
         padding: 2.8rem 2.2rem 2rem;
     }
 
+    @include desktop {
+        padding: 2.1rem 8rem 2.1rem;
+    }
+
     &__context {
         @include tablet {
             padding: 1rem 3.75rem 0;
+        }
+
+        @include desktop {
+            padding: 1.7rem 5rem 0;
         }
     }
 
@@ -48,6 +56,10 @@
             height: 19rem;
             margin-bottom: 2rem;
         }
+
+        @include desktop {
+            height: 30rem;
+        }
     }
 
     &__quote {
@@ -59,6 +71,11 @@
             font-size: 1.35rem;
             font-weight: 600;
             line-height: 1.9rem;
+        }
+
+        @include desktop {
+            display: inline-block;
+            width: 40rem;
         }
     }
 
@@ -117,6 +134,7 @@
 
     @include desktop {
         padding: 2.1rem 8rem 2rem;
+
     }
 
     &__title {
@@ -142,11 +160,7 @@
         width: 100%;
 
         @include tablet {
-            width: 13.5rem;
-        }
-
-        @include desktop {
-            width: 20rem;
+            width: 31%;
         }
     }
 }

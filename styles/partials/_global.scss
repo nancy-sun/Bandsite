@@ -62,14 +62,13 @@ a {
 
             @include desktop {
                 font-size: 0.85rem;
-                padding-top: 1.5rem;
+                padding-top: 1.7rem;
             }
 
             & a {
                 color: $secondary-mercury;
                 width: 100%;
                 padding: 0.5rem 0 0.7rem;
-
 
                 @include tablet {
                     padding-bottom: 0.3rem;
@@ -135,7 +134,7 @@ a {
     }
 
     @include desktop {
-        padding: 2.7rem 8rem 2.8rem;
+        padding: 2.6rem 8rem;
     }
 
     &__head {
@@ -235,9 +234,8 @@ a {
         }
 
         @include desktop {
-            height: 1.1rem;
             position: relative;
-            left: 58rem;
+            left: 72rem;
         }
     }
 }
@@ -248,7 +246,7 @@ a {
     gap: 1rem;
 
     @include tablet {
-        gap: 1.55rem;
+        gap: 1.3rem;
     }
 
 
@@ -262,6 +260,11 @@ a {
             font-weight: 600;
             line-height: 1.4rem;
         }
+
+        @include desktop {
+            font-size: 0.8rem;
+        }
+
     }
 
     &__address {
@@ -274,6 +277,10 @@ a {
             font-size: 0.9rem;
             line-height: 1.4rem;
         }
+
+        @include desktop {
+            font-size: 0.8rem;
+        }
     }
 
     &__email {
@@ -282,6 +289,10 @@ a {
 
         @include tablet {
             font-size: 0.9rem;
+        }
+
+        @include desktop {
+            font-size: 0.8rem;
         }
     }
 }
