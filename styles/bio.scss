@@ -212,9 +212,14 @@
 
     &__img {
         width: 100%;
+        filter: grayscale(0.75);
 
         @include tablet {
             width: 31%;
+        }
+
+        &:hover {
+            filter: none;
         }
     }
 }

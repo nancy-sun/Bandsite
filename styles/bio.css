@@ -508,9 +508,13 @@ a {
 }
 .gallery__img {
   width: 100%;
+  filter: grayscale(0.75);
 }
 @media (min-width: 768px) {
   .gallery__img {
     width: 31%;
   }
+}
+.gallery__img:hover {
+  filter: none;
 }/*# sourceMappingURL=bio.css.map */
