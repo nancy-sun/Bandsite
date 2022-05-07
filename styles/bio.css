@@ -207,7 +207,7 @@ a {
 }
 .footer__copyright {
   padding-top: 1rem;
-  font-size: 0.8rem;
+  font-size: 0.83rem;
   color: #FAFAFA;
 }
 @media (min-width: 768px) {
@@ -236,7 +236,7 @@ a {
 .contact {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 1.1rem;
 }
 @media (min-width: 768px) {
   .contact {
@@ -399,6 +399,7 @@ a {
     font-size: 1.35rem;
     font-weight: 600;
     line-height: 1.9rem;
+    letter-spacing: 0.55px;
   }
 }
 @media (min-width: 1280px) {
@@ -451,7 +452,7 @@ a {
   }
 }
 .about__content {
-  font-size: 1rem;
+  font-size: 0.99rem;
   line-height: 1.5rem;
   display: flex;
   flex-direction: column;
@@ -460,7 +461,12 @@ a {
 @media (min-width: 768px) {
   .about__content {
     flex-direction: row;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
+  }
+}
+@media (min-width: 1280px) {
+  .about__content {
+    font-size: 0.89rem;
   }
 }
 
