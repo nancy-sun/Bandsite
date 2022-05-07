@@ -1,0 +1,264 @@
+@use "./variables"as *;
+@use "./typefaces"as *;
+@use "./mixins"as *;
+@use "./reset"as*;
+
+a {
+    color: $primary-white;
+}
+
+.nav {
+    background-color: $primary-black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @include tablet {
+        flex-direction: row;
+        gap: 2.5rem;
+        align-items: stretch;
+    }
+
+    &__logo {
+        height: 1.45rem;
+        padding-top: 1.2rem;
+
+        @include tablet {
+            height: 1.1rem;
+            padding: 1.5rem 2.2rem 1.1rem;
+        }
+
+        @include desktop {
+            height: 1.2rem;
+            padding: 2.1rem 1rem 1.8rem 8rem;
+        }
+    }
+
+    &__list {
+        display: flex;
+        width: 100%;
+
+        @include tablet {
+            width: auto;
+            gap: 3rem;
+        }
+
+        @include desktop {
+            gap: 2.1rem;
+        }
+
+        &-item {
+            font-size: 1rem;
+            width: 100%;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: stretch;
+
+            @include tablet {
+                font-size: 0.85rem;
+                padding-top: 0.9rem;
+            }
+
+            @include desktop {
+                font-size: 0.88rem;
+                padding-top: 1.7rem;
+            }
+
+            & a {
+                color: $secondary-mercury;
+                width: 100%;
+                padding: 0.5rem 0 0.7rem;
+
+                @include tablet {
+                    padding-bottom: 0.3rem;
+                }
+            }
+
+            &--active,
+            &:hover {
+                border-bottom: solid white 4px;
+
+                & a {
+                    color: $primary-white;
+                }
+            }
+
+        }
+    }
+}
+
+
+.footer {
+    background: $primary-black;
+    color: $primary-white;
+    padding: 2rem 1rem 1.5rem;
+
+    @include tablet {
+        padding: 2.65rem 2.2rem 2.5rem;
+    }
+
+    @include desktop {
+        padding: 2.6rem 8rem;
+    }
+
+    &__head {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+
+        @include tablet {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 2.4rem;
+        }
+
+        @include desktop {
+            align-items: baseline;
+            gap: 2rem;
+        }
+    }
+
+    &__title {
+        font-size: 1.7rem;
+        font-weight: 600;
+        line-height: 2rem;
+
+        @include tablet {
+            font-size: 2.1rem;
+            line-height: 3rem;
+        }
+
+        @include desktop {
+            font-size: 2.3rem;
+        }
+    }
+
+    &__social {
+        display: flex;
+        width: 38%;
+        justify-content: space-between;
+        padding-bottom: 2rem;
+
+        @include tablet {
+            display: flex;
+            flex-direction: row;
+            width: 18%;
+            padding: 0 0.9rem;
+            height: 40%;
+        }
+
+        @include desktop {
+            width: 7.7rem;
+            height: 1.5rem;
+        }
+
+        &-icon {
+            height: 100%;
+        }
+
+    }
+
+    &__team {
+        display: flex;
+        flex-direction: column;
+        gap: 1.8rem;
+        padding-bottom: 5rem;
+
+        @include tablet {
+            display: flex;
+            flex-direction: row;
+            padding: 2.2rem 0 1.2rem;
+            justify-content: space-between;
+        }
+
+        @include desktop {
+            padding: 2.2rem 20.4rem 1.8rem 0;
+        }
+    }
+
+    &__copyright {
+        padding-top: 1rem;
+        font-size: 0.83rem;
+        color: $secondary-alabaster;
+
+        @include tablet {
+            padding: 0;
+        }
+    }
+
+    &__logo {
+        height: 1.45rem;
+
+        @include tablet {
+            height: 1.2rem;
+            position: relative;
+            bottom: 15.3rem;
+            left: 36.4rem;
+        }
+
+        @include desktop {
+            position: relative;
+            left: 56.8rem;
+        }
+    }
+}
+
+.contact {
+    display: flex;
+    flex-direction: column;
+    gap: 1.1rem;
+
+    @include tablet {
+        gap: 1.3rem;
+    }
+
+
+
+    &__name {
+        font-size: 1rem;
+        font-weight: 600;
+        line-height: 1.45rem;
+
+        @include tablet {
+            font-size: 0.9rem;
+            font-weight: 600;
+            line-height: 1.4rem;
+        }
+
+        @include desktop {
+            font-size: 0.8rem;
+        }
+
+    }
+
+    &__address {
+        font-style: normal;
+        font-size: 1rem;
+        line-height: 1.3rem;
+        color: $secondary-alabaster;
+
+        @include tablet {
+            font-size: 0.9rem;
+            line-height: 1.4rem;
+        }
+
+        @include desktop {
+            font-size: 0.8rem;
+        }
+    }
+
+    &__email {
+        font-size: 1rem;
+        color: $secondary-alabaster;
+
+        @include tablet {
+            font-size: 0.9rem;
+        }
+
+        @include desktop {
+            font-size: 0.8rem;
+        }
+    }
+}
