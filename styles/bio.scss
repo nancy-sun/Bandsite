@@ -4,11 +4,46 @@
 @use "./partials/mixins"as*;
 @use "./partials/reset"as*;
 
+
 .hero {
     background: linear-gradient(rgba(50, 50, 50, 0.5), rgba(50, 50, 50, 0.5)), url("../assets/Images/hero-bio.jpg");
     background-position: center;
     background-size: cover;
+    display: flex;
+    height: 15rem;
+
+    @include tablet {
+        height: 28rem;
+    }
+
+    @include desktop {
+        height: 39.5rem;
+    }
+
+    &__title {
+        font-size: 1.7rem;
+        font-weight: 600;
+        position: relative;
+        color: $primary-white;
+        top: 6.5rem;
+        left: 1.2rem;
+        line-height: 2rem;
+
+        @include tablet {
+            font-size: 3.7rem;
+            line-height: 4rem;
+            top: 12rem;
+            left: 2.2rem;
+        }
+
+        @include desktop {
+            font-size: 3.45rem;
+            top: 18rem;
+            left: 8.1rem;
+        }
+    }
 }
+
 
 .bio {
     display: flex;
@@ -20,7 +55,7 @@
     }
 
     @include desktop {
-        padding: 2.1rem 8rem 2.1rem;
+        padding: 2.1rem 8.1rem 2.1rem;
     }
 
     &__context {
@@ -58,7 +93,7 @@
         }
 
         @include desktop {
-            height: 30rem;
+            height: 28rem;
         }
     }
 
@@ -74,8 +109,10 @@
         }
 
         @include desktop {
+            font-size: 1.3rem;
+            letter-spacing: 1.1px;
             display: inline-block;
-            width: 40rem;
+            width: 43rem;
         }
     }
 
@@ -88,6 +125,10 @@
         @include tablet {
             font-size: 1rem;
             margin: 0.55rem 0 3rem;
+        }
+
+        @include desktop {
+            font-size: 0.9rem;
         }
     }
 }
@@ -107,6 +148,10 @@
             font-size: 1.35rem;
             font-weight: 600;
             line-height: 1.9rem;
+        }
+
+        @include desktop {
+            font-size: 1.58rem;
         }
     }
 
@@ -141,6 +186,10 @@
         @extend .bio__title;
         letter-spacing: 0.3px;
         padding-bottom: 1rem;
+
+        @include desktop {
+            padding-bottom: 1.4rem;
+        }
     }
 
     &__collection {

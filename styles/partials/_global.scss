@@ -44,7 +44,7 @@ a {
         }
 
         @include desktop {
-            gap: 2.5rem;
+            gap: 2.1rem;
         }
 
         &-item {
@@ -61,7 +61,7 @@ a {
             }
 
             @include desktop {
-                font-size: 0.85rem;
+                font-size: 0.88rem;
                 padding-top: 1.7rem;
             }
 
@@ -88,41 +88,6 @@ a {
     }
 }
 
-.hero {
-    display: flex;
-    height: 15rem;
-
-    @include tablet {
-        height: 28rem;
-    }
-
-    @include desktop {
-        height: 39.5rem;
-    }
-
-    &__title {
-        font-size: 1.7rem;
-        font-weight: 600;
-        position: relative;
-        color: $primary-white;
-        top: 6.5rem;
-        left: 1.2rem;
-        line-height: 2rem;
-
-        @include tablet {
-            font-size: 3.7rem;
-            line-height: 4rem;
-            top: 12rem;
-            left: 2.2rem;
-        }
-
-        @include desktop {
-            font-size: 3.45rem;
-            top: 18rem;
-            left: 8rem;
-        }
-    }
-}
 
 .footer {
     background: $primary-black;
@@ -151,7 +116,7 @@ a {
 
         @include desktop {
             align-items: baseline;
-            gap: 2.4rem;
+            gap: 2rem;
         }
     }
 
@@ -209,7 +174,7 @@ a {
         }
 
         @include desktop {
-            padding: 2.2rem 17.6rem 1.8rem 0;
+            padding: 2.2rem 20.4rem 1.8rem 0;
         }
     }
 
@@ -235,7 +200,7 @@ a {
 
         @include desktop {
             position: relative;
-            left: 72rem;
+            left: 56.8rem;
         }
     }
 }
@@ -248,6 +213,7 @@ a {
     @include tablet {
         gap: 1.3rem;
     }
+
 
 
     &__name {
