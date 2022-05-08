@@ -17,6 +17,7 @@
   margin: 0;
   font-family: "Avenir Next";
   padding: 0;
+  color: #323232;
 }
 
 li {
@@ -45,7 +46,7 @@ a {
   }
 }
 .nav__logo {
-  height: 1.45rem;
+  height: 1.25rem;
   padding-top: 1.2rem;
 }
 @media (min-width: 768px) {
@@ -76,7 +77,7 @@ a {
   }
 }
 .nav__list-item {
-  font-size: 1rem;
+  font-size: 0.83rem;
   width: 100%;
   text-align: center;
   display: flex;
@@ -115,7 +116,7 @@ a {
 .footer {
   background: #323232;
   color: #FFF;
-  padding: 2rem 1rem 1.5rem;
+  padding: 2rem 1rem 1.2rem;
 }
 @media (min-width: 768px) {
   .footer {
@@ -130,7 +131,7 @@ a {
 .footer__head {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 1.1rem;
 }
 @media (min-width: 768px) {
   .footer__head {
@@ -147,9 +148,10 @@ a {
   }
 }
 .footer__title {
-  font-size: 1.7rem;
+  font-size: 1.48rem;
   font-weight: 600;
   line-height: 2rem;
+  color: #FFF;
 }
 @media (min-width: 768px) {
   .footer__title {
@@ -164,9 +166,10 @@ a {
 }
 .footer__social {
   display: flex;
-  width: 38%;
+  width: 40%;
   justify-content: space-between;
-  padding-bottom: 2rem;
+  padding-bottom: 1.4rem;
+  height: 1.4rem;
 }
 @media (min-width: 768px) {
   .footer__social {
@@ -189,8 +192,8 @@ a {
 .footer__team {
   display: flex;
   flex-direction: column;
-  gap: 1.8rem;
-  padding-bottom: 5rem;
+  gap: 1.3rem;
+  padding-bottom: 3rem;
 }
 @media (min-width: 768px) {
   .footer__team {
@@ -207,7 +210,7 @@ a {
 }
 .footer__copyright {
   padding-top: 1rem;
-  font-size: 0.83rem;
+  font-size: 0.7rem;
   color: #FAFAFA;
 }
 @media (min-width: 768px) {
@@ -216,7 +219,7 @@ a {
   }
 }
 .footer__logo {
-  height: 1.45rem;
+  height: 1.2rem;
 }
 @media (min-width: 768px) {
   .footer__logo {
@@ -236,7 +239,7 @@ a {
 .contact {
   display: flex;
   flex-direction: column;
-  gap: 1.1rem;
+  gap: 1rem;
 }
 @media (min-width: 768px) {
   .contact {
@@ -244,9 +247,10 @@ a {
   }
 }
 .contact__name {
-  font-size: 1rem;
+  font-size: 0.78rem;
   font-weight: 600;
-  line-height: 1.45rem;
+  line-height: 1.35rem;
+  color: #FFF;
 }
 @media (min-width: 768px) {
   .contact__name {
@@ -262,8 +266,8 @@ a {
 }
 .contact__address {
   font-style: normal;
-  font-size: 1rem;
-  line-height: 1.3rem;
+  font-size: 0.78rem;
+  line-height: 1.2rem;
   color: #FAFAFA;
 }
 @media (min-width: 768px) {
@@ -278,7 +282,7 @@ a {
   }
 }
 .contact__email {
-  font-size: 1rem;
+  font-size: 0.78rem;
   color: #FAFAFA;
 }
 @media (min-width: 768px) {
@@ -297,7 +301,7 @@ a {
   background-position: center;
   background-size: cover;
   display: flex;
-  height: 15rem;
+  height: 13rem;
 }
 @media (min-width: 768px) {
   .hero {
@@ -310,11 +314,11 @@ a {
   }
 }
 .hero__title {
-  font-size: 1.7rem;
+  font-size: 1.5rem;
   font-weight: 600;
   position: relative;
   color: #FFF;
-  top: 6.5rem;
+  top: 5rem;
   left: 1.2rem;
   line-height: 2rem;
 }
@@ -337,7 +341,7 @@ a {
 .bio {
   display: flex;
   flex-direction: column;
-  padding: 2.05rem 1rem 1.05rem;
+  padding: 1.6rem 1rem 1.05rem;
 }
 @media (min-width: 768px) {
   .bio {
@@ -360,10 +364,10 @@ a {
   }
 }
 .bio__title, .gallery__title {
-  font-size: 1.7rem;
+  font-size: 1.5rem;
   font-weight: 600;
   line-height: 2rem;
-  margin-bottom: 1rem;
+  margin-bottom: 0.8rem;
 }
 @media (min-width: 768px) {
   .bio__title, .gallery__title {
@@ -375,7 +379,7 @@ a {
   background-image: url(../assets/Images/band.jpg);
   background-position: center;
   background-size: cover;
-  height: 12rem;
+  height: 10rem;
   margin-bottom: 1rem;
 }
 @media (min-width: 768px) {
@@ -390,9 +394,9 @@ a {
   }
 }
 .bio__quote {
-  font-size: 1.05rem;
+  font-size: 0.9rem;
   font-weight: 600;
-  line-height: 1.8rem;
+  line-height: 1.5rem;
 }
 @media (min-width: 768px) {
   .bio__quote {
@@ -411,10 +415,10 @@ a {
   }
 }
 .bio__quotee {
-  font-size: 1.1rem;
+  font-size: 0.95rem;
   font-weight: 600;
-  line-height: 1.8rem;
-  margin: 0.5rem 0 1.8rem;
+  line-height: 1.5rem;
+  margin: 0.5rem 0 1.5rem;
 }
 @media (min-width: 768px) {
   .bio__quotee {
@@ -434,7 +438,7 @@ a {
   padding-bottom: 0.3rem;
 }
 .about__subtitle {
-  font-size: 1.1rem;
+  font-size: 0.9rem;
   font-weight: 600;
   margin-bottom: 1rem;
   line-height: 1rem;
@@ -452,8 +456,8 @@ a {
   }
 }
 .about__content {
-  font-size: 0.99rem;
-  line-height: 1.5rem;
+  font-size: 0.83rem;
+  line-height: 1.2rem;
   display: flex;
   flex-direction: column;
   gap: 1rem;
@@ -472,7 +476,7 @@ a {
 
 .gallery {
   background-color: #FAFAFA;
-  padding: 1.5rem 1rem 1.3rem;
+  padding: 1.4rem 1rem 1.3rem;
 }
 @media (min-width: 768px) {
   .gallery {
@@ -486,7 +490,6 @@ a {
 }
 .gallery__title {
   letter-spacing: 0.3px;
-  padding-bottom: 1rem;
 }
 @media (min-width: 1280px) {
   .gallery__title {

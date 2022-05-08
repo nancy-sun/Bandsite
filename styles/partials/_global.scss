@@ -20,7 +20,7 @@ a {
     }
 
     &__logo {
-        height: 1.45rem;
+        height: 1.25rem;
         padding-top: 1.2rem;
 
         @include tablet {
@@ -48,7 +48,7 @@ a {
         }
 
         &-item {
-            font-size: 1rem;
+            font-size: 0.83rem;
             width: 100%;
             text-align: center;
             display: flex;
@@ -92,7 +92,7 @@ a {
 .footer {
     background: $primary-black;
     color: $primary-white;
-    padding: 2rem 1rem 1.5rem;
+    padding: 2rem 1rem 1.2rem;
 
     @include tablet {
         padding: 2.65rem 2.2rem 2.5rem;
@@ -105,7 +105,7 @@ a {
     &__head {
         display: flex;
         flex-direction: column;
-        gap: 1.5rem;
+        gap: 1.1rem;
 
         @include tablet {
             display: flex;
@@ -121,9 +121,10 @@ a {
     }
 
     &__title {
-        font-size: 1.7rem;
+        font-size: 1.48rem;
         font-weight: 600;
         line-height: 2rem;
+        color: $primary-white;
 
         @include tablet {
             font-size: 2.1rem;
@@ -137,9 +138,10 @@ a {
 
     &__social {
         display: flex;
-        width: 38%;
+        width: 40%;
         justify-content: space-between;
-        padding-bottom: 2rem;
+        padding-bottom: 1.4rem;
+        height: 1.4rem;
 
         @include tablet {
             display: flex;
@@ -163,8 +165,8 @@ a {
     &__team {
         display: flex;
         flex-direction: column;
-        gap: 1.8rem;
-        padding-bottom: 5rem;
+        gap: 1.3rem;
+        padding-bottom: 3rem;
 
         @include tablet {
             display: flex;
@@ -180,7 +182,7 @@ a {
 
     &__copyright {
         padding-top: 1rem;
-        font-size: 0.83rem;
+        font-size: 0.7rem;
         color: $secondary-alabaster;
 
         @include tablet {
@@ -189,7 +191,7 @@ a {
     }
 
     &__logo {
-        height: 1.45rem;
+        height: 1.2rem;
 
         @include tablet {
             height: 1.2rem;
@@ -208,18 +210,17 @@ a {
 .contact {
     display: flex;
     flex-direction: column;
-    gap: 1.1rem;
+    gap: 1rem;
 
     @include tablet {
         gap: 1.3rem;
     }
 
-
-
     &__name {
-        font-size: 1rem;
+        font-size: 0.78rem;
         font-weight: 600;
-        line-height: 1.45rem;
+        line-height: 1.35rem;
+        color: $primary-white;
 
         @include tablet {
             font-size: 0.9rem;
@@ -235,8 +236,8 @@ a {
 
     &__address {
         font-style: normal;
-        font-size: 1rem;
-        line-height: 1.3rem;
+        font-size: 0.78rem;
+        line-height: 1.2rem;
         color: $secondary-alabaster;
 
         @include tablet {
@@ -250,7 +251,7 @@ a {
     }
 
     &__email {
-        font-size: 1rem;
+        font-size: 0.78rem;
         color: $secondary-alabaster;
 
         @include tablet {
