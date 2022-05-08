@@ -4,11 +4,11 @@
 @use "./reset"as*;
 
 a {
-    color: $primary-white;
+    color: $primary-lighter;
 }
 
 .nav {
-    background-color: $primary-black;
+    background-color: $primary-dark;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -66,7 +66,7 @@ a {
             }
 
             & a {
-                color: $secondary-mercury;
+                color: $secondary-light;
                 width: 100%;
                 padding: 0.5rem 0 0.7rem;
 
@@ -80,7 +80,7 @@ a {
                 border-bottom: solid white 4px;
 
                 & a {
-                    color: $primary-white;
+                    color: $primary-lighter;
                 }
             }
 
@@ -90,8 +90,8 @@ a {
 
 
 .footer {
-    background: $primary-black;
-    color: $primary-white;
+    background: $primary-dark;
+    color: $primary-lighter;
     padding: 2rem 1rem 1.2rem;
 
     @include tablet {
@@ -124,7 +124,7 @@ a {
         font-size: 1.48rem;
         font-weight: 600;
         line-height: 2rem;
-        color: $primary-white;
+        color: $primary-lighter;
 
         @include tablet {
             font-size: 2.1rem;
@@ -183,7 +183,7 @@ a {
     &__copyright {
         padding-top: 1rem;
         font-size: 0.7rem;
-        color: $secondary-alabaster;
+        color: $secondary-lighter;
 
         @include tablet {
             padding: 0;
@@ -220,7 +220,7 @@ a {
         font-size: 0.78rem;
         font-weight: 600;
         line-height: 1.35rem;
-        color: $primary-white;
+        color: $primary-lighter;
 
         @include tablet {
             font-size: 0.9rem;
@@ -238,7 +238,7 @@ a {
         font-style: normal;
         font-size: 0.78rem;
         line-height: 1.2rem;
-        color: $secondary-alabaster;
+        color: $secondary-lighter;
 
         @include tablet {
             font-size: 0.9rem;
@@ -252,7 +252,7 @@ a {
 
     &__email {
         font-size: 0.78rem;
-        color: $secondary-alabaster;
+        color: $secondary-lighter;
 
         @include tablet {
             font-size: 0.9rem;

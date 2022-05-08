@@ -24,7 +24,7 @@
         font-size: 1.5rem;
         font-weight: 600;
         position: relative;
-        color: $primary-white;
+        color: $primary-lighter;
         top: 5rem;
         left: 1.2rem;
         line-height: 2rem;
@@ -175,7 +175,7 @@
 }
 
 .gallery {
-    background-color: $secondary-alabaster;
+    background-color: $secondary-lighter;
     padding: 1.4rem 1rem 1.3rem;
 
     @include tablet {
