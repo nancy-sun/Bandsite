@@ -301,7 +301,8 @@ a {
   background-position: center;
   background-size: cover;
   display: flex;
-  height: 15rem;
+  flex-direction: column;
+  height: 18rem;
 }
 @media (min-width: 768px) {
   .hero {
@@ -313,12 +314,23 @@ a {
     height: 39.5rem;
   }
 }
+.hero__text {
+  font-size: 0.84rem;
+  position: relative;
+  color: #FFF;
+  width: 15rem;
+  top: 1.8rem;
+  left: 1.2rem;
+  line-height: 2rem;
+}
 .hero__title {
   font-size: 1.5rem;
   font-weight: 600;
   position: relative;
   color: #FFF;
-  top: 3rem;
+  width: 15rem;
+  top: 2.7rem;
+  left: 1.2rem;
   line-height: 2rem;
 }
 @media (min-width: 768px) {

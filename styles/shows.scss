@@ -10,7 +10,8 @@
     background-position: center;
     background-size: cover;
     display: flex;
-    height: 15rem;
+    flex-direction: column;
+    height: 18rem;
 
     @include tablet {
         height: 28rem;
@@ -20,12 +21,24 @@
         height: 39.5rem;
     }
 
+    &__text {
+        font-size: 0.84rem;
+        position: relative;
+        color: $primary-lighter;
+        width: 15rem;
+        top: 1.8rem;
+        left: 1.2rem;
+        line-height: 2rem;
+    }
+
     &__title {
         font-size: 1.5rem;
         font-weight: 600;
         position: relative;
         color: $primary-lighter;
-        top: 3rem;
+        width: 15rem;
+        top: 2.7rem;
+        left: 1.2rem;
         line-height: 2rem;
 
         @include tablet {
@@ -41,4 +54,5 @@
             left: 8.1rem;
         }
     }
+
 }
