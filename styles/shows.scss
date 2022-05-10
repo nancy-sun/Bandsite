@@ -11,7 +11,7 @@
     background-size: cover;
     display: flex;
     flex-direction: column;
-    height: 18rem;
+    height: 17rem;
 
     @include tablet {
         height: 28rem;
@@ -26,8 +26,8 @@
         position: relative;
         color: $primary-lighter;
         width: 15rem;
-        top: 1.8rem;
-        left: 1.2rem;
+        top: 1.6rem;
+        left: 0.95rem;
         line-height: 2rem;
     }
 
@@ -36,10 +36,11 @@
         font-weight: 600;
         position: relative;
         color: $primary-lighter;
-        width: 15rem;
-        top: 2.7rem;
-        left: 1.2rem;
+        width: 15.2rem;
+        top: 2.1rem;
+        left: 0.95rem;
         line-height: 2rem;
+        letter-spacing: 0.3px;
 
         @include tablet {
             font-size: 3.7rem;
@@ -52,6 +53,19 @@
             font-size: 3.45rem;
             top: 18rem;
             left: 8.1rem;
+        }
+
+    }
+
+    &__song {
+        // padding: 0 1.2rem;
+        position: relative;
+        width: 18rem;
+        top: 3.3rem;
+        left: 0.95rem;
+
+        & iframe {
+            height: 6rem;
         }
     }
 

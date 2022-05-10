@@ -302,7 +302,7 @@ a {
   background-size: cover;
   display: flex;
   flex-direction: column;
-  height: 18rem;
+  height: 17rem;
 }
 @media (min-width: 768px) {
   .hero {
@@ -319,8 +319,8 @@ a {
   position: relative;
   color: #FFF;
   width: 15rem;
-  top: 1.8rem;
-  left: 1.2rem;
+  top: 1.6rem;
+  left: 0.95rem;
   line-height: 2rem;
 }
 .hero__title {
@@ -328,10 +328,11 @@ a {
   font-weight: 600;
   position: relative;
   color: #FFF;
-  width: 15rem;
-  top: 2.7rem;
-  left: 1.2rem;
+  width: 15.2rem;
+  top: 2.1rem;
+  left: 0.95rem;
   line-height: 2rem;
+  letter-spacing: 0.3px;
 }
 @media (min-width: 768px) {
   .hero__title {
@@ -347,4 +348,13 @@ a {
     top: 18rem;
     left: 8.1rem;
   }
+}
+.hero__song {
+  position: relative;
+  width: 18rem;
+  top: 3.3rem;
+  left: 0.95rem;
+}
+.hero__song iframe {
+  height: 6rem;
 }/*# sourceMappingURL=shows.css.map */
