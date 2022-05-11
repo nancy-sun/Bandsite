@@ -86,30 +86,21 @@
             </div>
         </section>
 
-        <section class="comments">
-            <h2 class="comments__title">Join the Conversation</h2>
-            <div class="comments__post">
-                <div class="comment__avatar"></div>
-                <form class="comment__form" action="">
-                    <label for="name"></label>
-                    <input type="text" name="name" id="name">
-                    <label for="comment"></label>
-                    <input type="text" name="comment" id="comment">
-                    <input type="submit" value="Submit">
+        <section class="comment">
+            <h2 class="comment__title">Join the Conversation</h2>
+            <div class="comment__post">
+                <div class="comment__form-avatar avatar"></div>
+                <form class="comment__form" action="#">
+                    <label for="name">name</label>
+                    <input class="comment__form-name" type="text" name="name" id="name" placeholder="Enter your name">
+                    <label for="comment">comment</label>
+                    <textarea class="comment__form-text" name="comment" id="comment"
+                        placeholder="Add a new comment"></textarea>
+                    <button type="submit">comment</button>
                 </form>
             </div>
-            <div class="comment__default">
+            <div class="comment__list-wrap">
                 <ul class="comment__list">
-                    <!-- <li class="comment__box">
-                        <div class="comment__avatar">
-                            <img src="" alt="">
-                        </div>
-                        <div class="comment__context">
-                            <p class="comment__name"></p>
-                            <p class="comment__time"></p>
-                        </div>
-                        <p class="comment__text"></p>
-                    </li> -->
                 </ul>
             </div>
         </section>

@@ -298,20 +298,22 @@ a {
 
 .hero {
   background: linear-gradient(rgba(50, 50, 50, 0.5), rgba(50, 50, 50, 0.5)), url("../assets/Images/hero-shows.jpg");
-  background-position: center;
+  background-position: 0 30%;
   background-size: cover;
   display: flex;
   flex-direction: column;
-  height: 17.5rem;
+  height: 17.2rem;
 }
 @media (min-width: 768px) {
   .hero {
+    background-position: 0 45%;
     height: 30.7rem;
   }
 }
 @media (min-width: 1280px) {
   .hero {
     height: 39.5rem;
+    background-position: 0 30%;
   }
 }
 .hero__text {
@@ -330,6 +332,12 @@ a {
     font-weight: 600;
     left: 2.2rem;
     top: 3.5rem;
+  }
+}
+@media (min-width: 1280px) {
+  .hero__text {
+    top: 12.3rem;
+    left: 8.1rem;
   }
 }
 .hero__title {
@@ -355,9 +363,11 @@ a {
 }
 @media (min-width: 1280px) {
   .hero__title {
-    font-size: 3.45rem;
-    top: 18rem;
+    width: 31rem;
+    font-size: 3.5rem;
+    top: 13.2rem;
     left: 8.1rem;
+    letter-spacing: 2.6px;
   }
 }
 .hero__song {
@@ -373,11 +383,18 @@ a {
     left: 2.2rem;
   }
 }
+@media (min-width: 1280px) {
+  .hero__song {
+    width: 25.6rem;
+    left: 46rem;
+    top: 5.3rem;
+  }
+}
 .hero__song iframe {
   height: 6rem;
 }
 @media (min-width: 768px) {
   .hero__song iframe {
-    height: 8.4rem;
+    height: 8.5rem;
   }
 }/*# sourceMappingURL=shows.css.map */

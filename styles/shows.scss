@@ -7,18 +7,20 @@
 
 .hero {
     background: linear-gradient($filter-color, $filter-color), url("../assets/Images/hero-shows.jpg");
-    background-position: center;
+    background-position: 0 30%;
     background-size: cover;
     display: flex;
     flex-direction: column;
-    height: 17.5rem;
+    height: 17.2rem;
 
     @include tablet {
+        background-position: 0 45%;
         height: 30.7rem;
     }
 
     @include desktop {
         height: 39.5rem;
+        background-position: 0 30%;
     }
 
     &__text {
@@ -38,6 +40,10 @@
             top: 3.5rem;
         }
 
+        @include desktop {
+            top: 12.3rem;
+            left: 8.1rem;
+        }
     }
 
     &__title {
@@ -61,9 +67,11 @@
         }
 
         @include desktop {
-            font-size: 3.45rem;
-            top: 18rem;
+            width: 31rem;
+            font-size: 3.5rem;
+            top: 13.2rem;
             left: 8.1rem;
+            letter-spacing: 2.6px;
         }
 
     }
@@ -80,11 +88,19 @@
             left: 2.2rem;
         }
 
+        @include desktop {
+            width: 25.6rem;
+            left: 46rem;
+            top: 5.3rem;
+        }
+
+        @include desktop {}
+
         & iframe {
             height: 6rem;
 
             @include tablet {
-                height: 8.4rem;
+                height: 8.5rem;
             }
         }
     }

@@ -27,40 +27,41 @@ function displayComment(commentsArr) {
 
 const commentList = document.querySelector(".comment__list");
 
-//original function with everything
-// function createCommentContent(commentObj) {
-//     const commentBox = document.createElement("li");
-//     commentList.appendChild(commentBox);
-//     commentBox.classList.add("comment__box");
+// original function with everything
+function createCommentContent(commentObj) {
+    const commentBox = document.createElement("li");
+    commentList.appendChild(commentBox);
+    commentBox.classList.add("comment__box");
 
-//     const avatar = document.createElement("div");
-//     avatar.classList.add("comment__avatar");
-//     commentBox.appendChild(avatar);
+    const avatar = document.createElement("div");
+    avatar.classList.add("comment__avatar");
+    avatar.classList.add("avatar");
+    avatar.style.backgroundImage = `url(${commentObj.avatar})`
+    commentBox.appendChild(avatar);
 
-//     const avatarImg = document.createElement("img");
-//     avatarImg.src = commentObj.avatar;
-//     avatarImg.alt = "avatar";
-//     avatar.appendChild(avatarImg);
+    const context = document.createElement("div");
+    context.classList.add("comment__context");
+    commentBox.appendChild(context);
 
-//     const context = document.createElement("div");
-//     context.classList.add("comment__context");
-//     commentBox.appendChild(context);
+    const info = document.createElement("div");
+    info.classList.add("comment__info");
+    context.appendChild(info);
 
-//     const name = document.createElement("p")
-//     name.classList.add("comment__name");
-//     name.innerText = commentObj.name;
-//     context.appendChild(name);
+    const name = document.createElement("p")
+    name.classList.add("comment__name");
+    name.innerText = commentObj.name;
+    info.appendChild(name);
 
-//     const time = document.createElement("p");
-//     time.classList.add("comment__time");
-//     time.innerText = commentObj.timestamp;
-//     context.appendChild(time);
+    const time = document.createElement("p");
+    time.classList.add("comment__time");
+    time.innerText = commentObj.timestamp;
+    info.appendChild(time);
 
-//     const text = document.createElement("p");
-//     text.classList.add("comment__text");
-//     text.innerText = commentObj.text;
-//     commentBox.appendChild(text);
-// }
+    const text = document.createElement("p");
+    text.classList.add("comment__text");
+    text.innerText = commentObj.text;
+    context.appendChild(text);
+}
 
 
 displayComment(defaultComment);
