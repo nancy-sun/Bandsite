@@ -1,7 +1,7 @@
-@use "./variables"as *;
-@use "./typefaces"as *;
-@use "./mixins"as *;
-@use "./reset"as*;
+@use "./variables" as *;
+@use "./typefaces" as *;
+@use "./mixins" as *;
+@use "./reset" as*;
 
 a {
     color: $primary-lighter;
@@ -166,7 +166,7 @@ a {
         display: flex;
         flex-direction: column;
         gap: 1.3rem;
-        padding-bottom: 3rem;
+        padding-bottom: 4rem;
 
         @include tablet {
             display: flex;
