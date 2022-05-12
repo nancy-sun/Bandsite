@@ -270,18 +270,6 @@
             //need to add form border and active state class name and style
         }
 
-        & button {
-            color: $primary-lighter;
-            font-weight: 600;
-            font-size: 0.88rem;
-            letter-spacing: 1px;
-            background-color: $primary-dark;
-            text-transform: uppercase;
-            border-radius: 4px;
-            padding: 0.6rem;
-            margin-top: 1rem;
-        }
-
         &-name {
             border-radius: 4px;
             padding: 0.5rem;
@@ -296,6 +284,19 @@
             border-radius: 4px;
             margin-bottom: 0;
         }
+    }
+
+    &__submit {
+        color: $primary-lighter;
+        font-weight: 600;
+        font-size: 0.88rem;
+        letter-spacing: 1px;
+        background-color: $primary-dark;
+        text-transform: uppercase;
+        border-radius: 4px;
+        padding: 0.6rem;
+        margin-top: 1rem;
+        cursor: pointer;
     }
 
     &__list {

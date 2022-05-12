@@ -564,17 +564,6 @@ a {
   font-weight: 600;
   margin-bottom: 0.4rem;
 }
-.comment__form button {
-  color: #FFF;
-  font-weight: 600;
-  font-size: 0.88rem;
-  letter-spacing: 1px;
-  background-color: #323232;
-  text-transform: uppercase;
-  border-radius: 4px;
-  padding: 0.6rem;
-  margin-top: 1rem;
-}
 .comment__form-name, .comment__form-text {
   border-radius: 4px;
   padding: 0.5rem;
@@ -586,6 +575,18 @@ a {
   height: 3rem;
   border-radius: 4px;
   margin-bottom: 0;
+}
+.comment__submit {
+  color: #FFF;
+  font-weight: 600;
+  font-size: 0.88rem;
+  letter-spacing: 1px;
+  background-color: #323232;
+  text-transform: uppercase;
+  border-radius: 4px;
+  padding: 0.6rem;
+  margin-top: 1rem;
+  cursor: pointer;
 }
 .comment__list {
   display: flex;
