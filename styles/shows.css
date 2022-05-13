@@ -1,17 +1,17 @@
 @font-face {
-  font-family: "Avenir Next";
+  font-family: "Avenir Next", sans-serif;
   src: url(../assets/Font/AvenirNextLTPro-Regular.otf) format("opentype"), url(../assets/Font/Alternative-files/AvenirNextLTPro.ttf) format("truetype");
   font-weight: 400;
 }
 @font-face {
-  font-family: "Avenir Next";
-  src: url(../assets/Font/AvenirNextLTPro-Bold.otf) format("opentype"), url(../assets/Font/Alternative-files/AvenirNextLTProBold.ttf) format("truetype");
-  font-weight: 700;
-}
-@font-face {
-  font-family: "Avenir Next";
+  font-family: "Avenir Next", sans-serif;
   src: url(../assets/Font/AvenirNextLTPro-Demi.otf) format("opentype"), url(../assets/Font/Alternative-files/AvenirNextLTProDemi.ttf) format("truetype");
   font-weight: 600;
+}
+@font-face {
+  font-family: "Avenir Next", sans-serif;
+  src: url(../assets/Font/AvenirNextLTPro-Bold.otf) format("opentype"), url(../assets/Font/Alternative-files/AvenirNextLTProBold.ttf) format("truetype");
+  font-weight: 700;
 }
 * {
   margin: 0;
@@ -390,11 +390,70 @@ a {
     top: 5.3rem;
   }
 }
-.hero__song iframe {
+iframe {
   height: 6rem;
 }
 @media (min-width: 768px) {
-  .hero__song iframe {
+  iframe {
     height: 8.5rem;
   }
+}
+
+.shows {
+  padding: 1.85rem 0 1rem;
+  display: flex;
+  flex-direction: column;
+}
+@media (min-width: 768px) {
+  .shows {
+    padding: 2.6rem 1rem 1rem;
+  }
+}
+.shows__title {
+  padding: 0 0.95rem 1rem;
+  font-size: 1.54rem;
+  font-weight: 600;
+}
+@media (min-width: 768px) {
+  .shows__title {
+    font-size: 2.18rem;
+  }
+}
+.shows__item {
+  display: flex;
+  padding: 0.87rem 0;
+  flex-direction: column;
+  border-bottom: solid 1px #E1E1E1;
+  gap: 0.7rem;
+}
+@media (min-width: 768px) {
+  .shows__item {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+.shows__subtitle {
+  color: #AFAFAF;
+  text-transform: uppercase;
+  font-weight: 500;
+  font-size: 0.6rem;
+  padding: 0 0.95rem 0.28rem;
+}
+.shows__venue, .shows__date, .shows__location {
+  font-size: 0.8rem;
+  padding: 0 0.95rem;
+  width: 8rem;
+}
+.shows__date {
+  font-weight: 600;
+}
+.shows__button {
+  background-color: #323232;
+  color: #FFF;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 0.6rem;
+  margin: 0 0.95rem;
+  border-radius: 4px;
 }/*# sourceMappingURL=shows.css.map */

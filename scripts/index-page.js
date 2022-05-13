@@ -97,15 +97,19 @@ form.addEventListener("submit", function (event) {
         name: event.target.name.value,
         timestamp: today,
         text: event.target.comment.value,
-        avatar: "#" //url path
+        avatar: "#" //url path for avatar
     };
-    form.reset();
-    comments.unshift(newComment); //remove the previous comments
-    commentList.innerText = "";
-    displayComment(comments.slice(0, 10));
-    console.log(comments);
+    if (!newComment.name) {
+        newComment.name = "Anonymous"; //set name displayed to anonymous if not entered
+    }
+    if (newComment.text) {
+        comments.unshift(newComment);
+        form.reset();
+    } else {
+        alert("enter a comment")
+    }
+    commentList.innerText = ""; //remove comments displayed previously
+    displayComment(comments.slice(0, 10)); //limit comments displayed on page to 10
 });
-
-
 
 

@@ -87,11 +87,10 @@ function createShowBox(showsObj) {
 
 displayShows(shows);
 
-
-document.querySelector(".shows__item").addEventListener("mouseover", function (event) {
+document.querySelector(".shows__item").addEventListener("mouseover", function () {
     document.querySelector(".shows__item").classList.toggle("shows__item-hov");
 });
 
-document.querySelector(".shows__item").addEventListener("click", function (event) {
+document.querySelector(".shows__item").addEventListener("click", function () {
     document.querySelector(".shows__item").classList.toggle("shows__item-selected");
 })
