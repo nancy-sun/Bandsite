@@ -26,7 +26,7 @@ function displayComment(commentsArr) {
     for (let i = 0; i < commentsArr.length; i++) {
         createComment(commentsArr[i]);
     }
-}
+};
 
 //grab the parent <ul> element
 const commentList = document.querySelector(".comment__list");
@@ -100,9 +100,10 @@ form.addEventListener("submit", function (event) {
         avatar: "#" //url path
     };
     form.reset();
-    // const newComments = comments;
-    comments.unshift(comments); //remove the previous comments
-    displayComment(comments);
+    comments.unshift(newComment); //remove the previous comments
+    commentList.innerText = "";
+    displayComment(comments.slice(0, 10));
+    console.log(comments);
 });
 
 
