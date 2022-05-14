@@ -117,7 +117,7 @@ iframe {
     @include desktop {
         flex-direction: row;
         justify-content: space-between;
-        padding: 3rem 8rem 2.4rem;
+        padding: 3rem 6.7rem 2.4rem 8rem;
     }
 
     &__title {
@@ -142,7 +142,13 @@ iframe {
         @include tablet {
             font-size: 0.75rem;
             padding-right: 0;
-            display: none; //only display the subtitle of the first list item in tablet size
+            display: none; //hide all subtitles at tablet size an up
+        }
+    }
+
+    &__list {
+        @include desktop {
+            padding-top: 3.4rem;
         }
     }
 
@@ -153,6 +159,7 @@ iframe {
         border-bottom: solid 1px $secondary-light;
         gap: 0.7rem;
         box-sizing: border-box;
+        cursor: pointer;
 
         @include tablet {
             flex-direction: row;
@@ -163,11 +170,14 @@ iframe {
         }
 
         @include desktop {
-            padding: 0.91rem 0;
+            padding: 0.91rem 1.3rem;
+            width: 50.2rem;
         }
 
         &:first-child {
             & p:nth-of-type(odd) {
+
+                //only display the subtitle of the first list item in tablet size and up
                 @include tablet {
                     display: block;
                     position: absolute;
@@ -175,9 +185,17 @@ iframe {
                 }
 
                 @include desktop {
-                    top: 49rem;
+                    top: 49.5rem;
                 }
             }
+        }
+
+        &:hover {
+            background-color: $secondary-lighter;
+        }
+
+        &--active {
+            background-color: $secondary-light;
         }
     }
 
@@ -189,6 +207,11 @@ iframe {
             font-size: 0.85rem;
             width: 6.5rem;
         }
+
+        @include desktop {
+            width: 8.5rem;
+            font-size: 0.9rem
+        }
     }
 
     &__location {
@@ -197,12 +220,20 @@ iframe {
         @include tablet {
             width: 7rem
         }
+
+        @include desktop {
+            width: 8rem;
+        }
     }
 
     &__date {
         @extend .shows__venue;
         font-weight: 600;
         width: 7.35rem;
+
+        @include desktop {
+            width: 13.5rem;
+        }
     }
 
     &__date-warp,
