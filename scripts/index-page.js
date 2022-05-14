@@ -83,6 +83,9 @@ function getTimestamp() {
         month = "0" + month;
     };
     const date = today.getDate();
+    if (date < 10) {
+        date = "0" + date;
+    }
     const year = today.getFullYear();
     return month + "/" + date + "/" + year;
 }

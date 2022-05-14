@@ -410,13 +410,26 @@ iframe {
   }
 }
 .shows__title {
-  padding: 0 0.95rem 1rem;
+  padding: 0 0.95rem 2rem;
   font-size: 1.54rem;
   font-weight: 600;
 }
 @media (min-width: 768px) {
   .shows__title {
     font-size: 2.18rem;
+  }
+}
+.shows__subtitle {
+  color: #AFAFAF;
+  text-transform: uppercase;
+  font-weight: 500;
+  font-size: 0.6rem;
+  padding: 0 0.95rem 0.28rem;
+}
+@media (min-width: 768px) {
+  .shows__subtitle {
+    padding-right: 0;
+    display: none;
   }
 }
 .shows__item {
@@ -430,19 +443,19 @@ iframe {
   .shows__item {
     flex-direction: row;
     justify-content: space-between;
+    gap: 0;
+    align-items: center;
   }
 }
-.shows__subtitle {
-  color: #AFAFAF;
-  text-transform: uppercase;
-  font-weight: 500;
-  font-size: 0.6rem;
-  padding: 0 0.95rem 0.28rem;
+.shows__item:first-child p:nth-of-type(odd) {
+  display: block;
+  position: absolute;
+  top: 41.5rem;
 }
 .shows__venue, .shows__date, .shows__location {
   font-size: 0.8rem;
   padding: 0 0.95rem;
-  width: 8rem;
+  display: inline-block;
 }
 .shows__date {
   font-weight: 600;
@@ -456,4 +469,9 @@ iframe {
   padding: 0.6rem;
   margin: 0 0.95rem;
   border-radius: 4px;
+}
+@media (min-width: 768px) {
+  .shows__button {
+    margin: 0;
+  }
 }/*# sourceMappingURL=shows.css.map */
