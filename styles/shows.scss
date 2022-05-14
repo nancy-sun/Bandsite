@@ -15,7 +15,7 @@
 
     @include tablet {
         background-position: 0 45%;
-        height: 30.7rem;
+        height: 31.5rem;
     }
 
     @include desktop {
@@ -93,8 +93,6 @@
             left: 46rem;
             top: 5.3rem;
         }
-
-        @include desktop {}
     }
 }
 
@@ -110,18 +108,26 @@ iframe {
     padding: 1.85rem 0 1rem;
     display: flex;
     flex-direction: column;
+    box-sizing: border-box;
 
     @include tablet {
-        padding: 2.6rem 1rem 1rem;
+        padding: 3rem 1.25rem 2.4rem;
+    }
+
+    @include desktop {
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 3rem 8rem 2.4rem;
     }
 
     &__title {
-        padding: 0 0.95rem 2rem;
+        padding: 0 0.95rem 0.85rem;
         font-size: 1.54rem;
         font-weight: 600;
 
         @include tablet {
             font-size: 2.18rem;
+            padding: 0 0.2rem 3.9rem;
         }
     }
 
@@ -131,50 +137,79 @@ iframe {
         text-transform: uppercase;
         font-weight: 500;
         font-size: 0.6rem;
-        padding: 0 0.95rem 0.28rem;
+        padding-bottom: 0.28rem;
 
         @include tablet {
+            font-size: 0.75rem;
             padding-right: 0;
-            display: none; //make the first one show
+            display: none; //only display the subtitle of the first list item in tablet size
         }
     }
 
     &__item {
         display: flex;
-        padding: 0.87rem 0;
+        padding: 0.87rem 0.95rem;
         flex-direction: column;
         border-bottom: solid 1px $secondary-light;
         gap: 0.7rem;
+        box-sizing: border-box;
 
         @include tablet {
             flex-direction: row;
             justify-content: space-between;
-            gap: 0;
+            gap: 1.5rem;
             align-items: center;
+            padding: 0.91rem 1.48rem;
+        }
+
+        @include desktop {
+            padding: 0.91rem 0;
         }
 
         &:first-child {
             & p:nth-of-type(odd) {
-                display: block;
-                position: absolute;
-                top: 41.5rem;
+                @include tablet {
+                    display: block;
+                    position: absolute;
+                    top: 44rem;
+                }
+
+                @include desktop {
+                    top: 49rem;
+                }
             }
         }
     }
 
     &__venue {
         font-size: 0.8rem;
-        padding: 0 0.95rem;
         display: inline-block;
+
+        @include tablet {
+            font-size: 0.85rem;
+            width: 6.5rem;
+        }
     }
 
     &__location {
         @extend .shows__venue;
+
+        @include tablet {
+            width: 7rem
+        }
     }
 
     &__date {
         @extend .shows__venue;
         font-weight: 600;
+        width: 7.35rem;
+    }
+
+    &__date-warp,
+    &__location-wrap,
+    &__venue-wrap {
+        display: flex;
+        flex-wrap: nowrap;
     }
 
     &__button {
@@ -184,11 +219,14 @@ iframe {
         font-size: 0.9rem;
         font-weight: 600;
         padding: 0.6rem;
-        margin: 0 0.95rem;
         border-radius: 4px;
+        box-sizing: border-box;
 
         @include tablet {
             margin: 0;
+            width: 9.5rem;
+            font-weight: 500;
+            font-size: 0.95rem;
         }
     }
 }
