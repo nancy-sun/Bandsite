@@ -1,9 +1,7 @@
-
-//default comment
 const comments = [
     {
         name: "Connor Walton",
-        timestamp: new Date().setFullYear(2022, 2 - 1, 17),
+        timestamp: new Date().setFullYear(2021, 2 - 1, 17),
         text: "This is art. This is inexplicable magic expressed in the purest way, everything that makes up this majestic work deserves reverence. Let us appreciate this for what it is and what it contains.",
         avatar: "./assets/images/mohan-muruge.jpg" //url path
     },
@@ -21,12 +19,43 @@ const comments = [
     }
 ]
 
+//declare unit diff variables for comment timestamp
 const secDiff = 1;
 const minDiff = secDiff * 60;
 const hourDiff = minDiff * 60;
 const dayDiff = hourDiff * 24;
 const monthDiff = dayDiff * 30;
 const yearDiff = monthDiff * 12;
+
+//iterate unit diff over an array
+const diffs = [
+    {
+        unit: yearDiff,
+        unitString: "year"
+    },
+    {
+        unit: monthDiff,
+        unitString: "month"
+    },
+    {
+        unit: dayDiff,
+        unitString: "day"
+    },
+    {
+        unit: hourDiff,
+        unitString: "hour"
+    },
+    {
+        unit: minDiff,
+        unitString: "min"
+    },
+    {
+        unit: secDiff,
+        unitString: "sec"
+    }
+];
+
+/* to iterate over a map
 const diffs = new Map(
     [[yearDiff, "year"],
     [monthDiff, "month"],
@@ -35,10 +64,11 @@ const diffs = new Map(
     [minDiff, "min"],
     [secDiff, "sec"]]
 )
+*/
 
-function displayComment(commentsArr) {
+function displayComments(commentsArr) {
     for (let i = 0; i < commentsArr.length; i++) {
-        createComment(commentsArr[i]);
+        createCommentBox(commentsArr[i]);
     }
 };
 
@@ -46,16 +76,14 @@ function displayComment(commentsArr) {
 const commentList = document.querySelector(".comment__list");
 
 //create element and give it a class
-function createCommentElement(tag, className) {
+function createCommentElement(tag, className, text = "") {
     const item = document.createElement(tag);
     item.classList.add(className);
+    item.innerText = text;
     return item;
 }
 
-function createComment(commentObj) {
-    const timeDiff = calculateTimeElapse(commentObj.timestamp);
-
-
+function createCommentBox(commentObj) {
     const commentBox = createCommentElement("li", "comment__box");
     commentList.appendChild(commentBox);
 
@@ -70,18 +98,19 @@ function createComment(commentObj) {
     const info = createCommentElement("div", "comment__info");
     context.appendChild(info);
 
-    const name = createCommentElement("p", "comment__name");
-    name.innerText = commentObj.name;
+    const name = createCommentElement("p", "comment__name", commentObj.name);
     info.appendChild(name);
 
-    const time = createCommentElement("p", "comment__time");
-    time.innerText = timeDiff;
+    const timeDiff = calculateTimeElapse(commentObj.timestamp);
+    const time = createCommentElement("p", "comment__time", timeDiff);
     info.appendChild(time);
 
-    const text = createCommentElement("p", "comment__text");
-    text.innerText = commentObj.text;
+    const text = createCommentElement("p", "comment__text", commentObj.text);
     context.appendChild(text);
 }
+
+//display default comments when page first loads
+displayComments(comments);
 
 
 //form submission
@@ -92,6 +121,7 @@ const form = document.querySelector(".comment__form");
 //grab the submit button
 const submit = document.querySelector(".comment__submit");
 
+//used for displaying comment timestamp in mm/dd/yyyy format
 function getSubmitDate(commentDate) {
     const submitDate = new Date(commentDate);
     let month = submitDate.getMonth() + 1;
@@ -107,25 +137,23 @@ function getSubmitDate(commentDate) {
     return month + "/" + date + "/" + year;
 }
 
+//grab input boxes in the form
+const nameInput = document.querySelector(".comment__form-name");
+const textInput = document.querySelector(".comment__form-text");
 
-displayComment(comments);
-
-//get submission time
-form.addEventListener("submit", (e) => {
-    return e.timeStamp;
-})
 
 //when submit form
 form.addEventListener("submit", function (event) {
     event.preventDefault();
-    //version before diving deep
-    // let today = new Date; 
-    // today = getSubmitDate(today);
-    let now = new Date();
+
+    nameInput.classList.remove("comment__form--invalid");
+    textInput.classList.remove("comment__form--invalid");
+
+    let submitTime = new Date(); //grab the timestamp of submission
 
     const newComment = {
         name: event.target.name.value,
-        timestamp: now,
+        timestamp: submitTime,
         text: event.target.comment.value,
         avatar: "#" //url path for avatar
     };
@@ -134,40 +162,51 @@ form.addEventListener("submit", function (event) {
     if (newComment.name && newComment.text) {
         comments.unshift(newComment);
         form.reset();
+    } else if (!newComment.name && newComment.text) {
+        nameInput.classList.add("comment__form--invalid");
+    } else if (!newComment.text && newComment.name) {
+        textInput.classList.add("comment__form--invalid");
     } else {
-        if (!newComment.name && !newComment.text) {
-            document.querySelector(".comment__form-name").classList.add("comment__form--invalid");
-            document.querySelector(".comment__form-text").classList.add("comment__form--invalid");
-        } else if (!newComment.text) {
-            document.querySelector(".comment__form-text").classList.add("comment__form--invalid");
-        } else {
-            document.querySelector(".comment__form-name").classList.add("comment__form--invalid");
-        }
+        nameInput.classList.add("comment__form--invalid");
+        textInput.classList.add("comment__form--invalid");
     }
-    commentList.innerText = ""; //remove comments displayed previously)
-    displayComment(comments.slice(0, 10)); //limit comments displayed on page to 10
+
+    commentList.innerText = ""; //remove comments displayed previously
+    displayComments(comments.slice(0, 10)); //limit comments displayed on page to 10
 });
 
+
+//functions use for diving deep timestamp format for comments
+
+//calculate time elapsed between comment and now
 function calculateTimeElapse(commentDate) {
-    let now = new Date().getTime() / 1000;
-
-    let commentTimestamp = new Date(commentDate).getTime() / 1000;
-
+    let now = new Date().getTime() / 1000; //timestamp now in secs
+    let commentTimestamp = new Date(commentDate).getTime() / 1000; //timestamp of comment in secs
     let timeDiffInSec = now - commentTimestamp;
-    for (const [unit, unitStr] of diffs) {
-        let timeElapsed = getTimeDiffInStr(timeDiffInSec, unit, unitStr)
-        console.log(timeElapsed)
+
+    for (let i = 0; i < diffs.length; i++) {
+        let timeElapsed = getTimeDiffInStr(timeDiffInSec, diffs[i].unit, diffs[i].unitString);
         if (timeElapsed) {
             return timeElapsed;
         }
     }
     return "Just Now";
+
+    /* iterate over a map
+    for (const [unit, unitStr] of diffs) {
+        let timeElapsed = getTimeDiffInStr(timeDiffInSec, unit, unitStr);
+        if (timeElapsed) {
+            return timeElapsed;
+        }
+    }
+    */
 }
 
+//to get time diff based on units
 function getTimeDiffInStr(timeDiffInSec, unit, unitStr) {
     let unitsDiffInSec = timeDiffInSec - unit;
     if (unitsDiffInSec > 0) {
         let units = Math.floor(timeDiffInSec / unit);
-        return `${units} ${unitStr}${units > 1 ? 's' : ''} ago`;
+        return `${units} ${unitStr}${units > 1 ? "s" : ""} ago`;
     }
 }

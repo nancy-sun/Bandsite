@@ -13,7 +13,7 @@
     height: 11.8rem;
 
     @include tablet {
-        height: 28rem;
+        height: 28.5rem;
         background-position: bottom;
     }
 
@@ -50,7 +50,7 @@
 .bio {
     display: flex;
     flex-direction: column;
-    padding: 1.6rem 1rem 1.05rem;
+    padding: 1.4rem 1rem 1rem;
 
     @include tablet {
         padding: 2.8rem 2.2rem 2rem;
@@ -91,7 +91,7 @@
         margin-bottom: 1rem;
 
         @include tablet {
-            height: 19rem;
+            height: 19.5rem;
             margin-bottom: 2rem;
         }
 
@@ -101,7 +101,7 @@
     }
 
     &__quote {
-        font-size: 0.9rem;
+        font-size: 0.88rem;
         font-weight: 600;
         line-height: 1.5rem;
 
@@ -121,10 +121,8 @@
     }
 
     &__quotee {
-        font-size: 0.95rem;
-        font-weight: 600;
-        line-height: 1.5rem;
-        margin: 0.5rem 0 1.5rem;
+        @extend .bio__quote;
+        margin: 0.4rem 0 1.4rem;
 
         @include tablet {
             font-size: 1rem;
@@ -140,7 +138,6 @@
 .about {
     display: flex;
     flex-direction: column;
-    padding-bottom: 0.3rem;
 
     &__subtitle {
         font-size: 0.9rem;
@@ -156,6 +153,7 @@
 
         @include desktop {
             font-size: 1.58rem;
+            margin-bottom: 1.5rem;
         }
     }
 
@@ -169,6 +167,7 @@
         @include tablet {
             flex-direction: row;
             font-size: 0.85rem;
+            line-height: 1.4rem;
         }
 
         @include desktop {
@@ -179,7 +178,7 @@
 
 .gallery {
     background-color: $secondary-lighter;
-    padding: 1.4rem 1rem 1.3rem;
+    padding: 1.3rem 1rem 1.3rem;
 
     @include tablet {
         padding: 2.1rem 2.2rem 2rem;
@@ -193,7 +192,6 @@
     &__title {
         @extend .bio__title;
         letter-spacing: 0.3px;
-        padding-bottom: 1.4rem;
     }
 
     &__collection {
@@ -296,10 +294,9 @@
         & label {
             color: $primary-light;
             text-transform: uppercase;
-            font-size: 0.65rem;
+            font-size: 0.6rem;
             font-weight: 500;
             margin-bottom: 0.4rem;
-            //need to add form border and active state class name and style
 
             @include tablet {
                 font-size: 0.75rem;
@@ -331,7 +328,7 @@
         &-text {
             @extend .comment__form-name;
             resize: none;
-            height: 3rem;
+            height: 5rem;
             margin-bottom: 0;
 
             @include tablet {

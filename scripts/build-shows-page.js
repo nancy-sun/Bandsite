@@ -34,7 +34,7 @@ const shows = [
 
 function displayShows(showsArr) {
     for (let i = 0; i < showsArr.length; i++) {
-        createShowBox(showsArr[i]);
+        createShow(showsArr[i]);
     }
 };
 
@@ -42,63 +42,53 @@ function displayShows(showsArr) {
 //grab the parent <ul>
 const showsList = document.querySelector(".shows__list");
 
-function createShow(tag, className) {
+function createShowElement(tag, className, text = "") {
     const item = document.createElement(tag);
     item.classList.add(className);
+    item.innerText = text;
     return item;
 }
 
-function createShowBox(showsObj) {
-    const showsItem = createShow("li", "shows__item");
+function createShow(showsObj) {
+    const showsItem = createShowElement("li", "shows__item");
     showsList.appendChild(showsItem);
 
-    const showsDateWrap = createShow("div", "shows__date-wrap");
+    const showsDateWrap = createShowElement("div", "shows__date-wrap");
     showsItem.appendChild(showsDateWrap);
-    const showsDateTitle = createShow("p", "shows__subtitle");
-    showsDateTitle.innerText = "date";
+
+    const showsDateTitle = createShowElement("p", "shows__subtitle", "date");
     showsDateWrap.appendChild(showsDateTitle);
-    const showsDate = createShow("p", "shows__date");
-    showsDate.innerText = showsObj.date;
+
+    const showsDate = createShowElement("p", "shows__date", showsObj.date);
     showsDateWrap.appendChild(showsDate);
 
-
-    const showsVenueWrap = createShow("div", "shows__venue-wrap");
+    const showsVenueWrap = createShowElement("div", "shows__venue-wrap");
     showsItem.appendChild(showsVenueWrap);
-    const showsVenueTitle = createShow("p", "shows__subtitle");
-    showsVenueTitle.innerText = "venue";
+
+    const showsVenueTitle = createShowElement("p", "shows__subtitle", "venue");
     showsVenueWrap.appendChild(showsVenueTitle);
-    const showsVenue = createShow("p", "shows__venue");
-    showsVenue.innerText = showsObj.venue;
+
+    const showsVenue = createShowElement("p", "shows__venue", showsObj.venue);
     showsVenueWrap.appendChild(showsVenue);
 
-    const showsLocationWrap = createShow("div", "shows__location-wrap");
+    const showsLocationWrap = createShowElement("div", "shows__location-wrap");
     showsItem.appendChild(showsLocationWrap);
-    const showsLocationTitle = createShow("p", "shows__subtitle");
-    showsLocationTitle.innerText = "location";
+
+    const showsLocationTitle = createShowElement("p", "shows__subtitle", "location");
     showsLocationWrap.appendChild(showsLocationTitle);
-    const showsLocation = createShow("p", "shows__location");
-    showsLocation.innerText = showsObj.location;
+
+    const showsLocation = createShowElement("p", "shows__location", showsObj.location);
     showsLocationWrap.appendChild(showsLocation);
 
-    const showsButton = createShow("button", "shows__button")
+    const showsButton = createShowElement("button", "shows__button", "buy tickets");
+    showsButton.setAttribute("type", "button");
     showsItem.appendChild(showsButton);
-    showsButton.innerText = "buy tickets";
 };
 
 displayShows(shows);
 
-
+//grab all the shows <li> in a node list
 const showsItems = document.querySelectorAll(".shows__item");
-// let lastClickIdx = undefined;
-// showsItems.forEach((item, index) => {
-//     item.addEventListener("click", () => {
-//         if (lastClickIdx !== undefined) {
-//             lastClickIdx = index;
-//             showsItems[lastClickIdx].classList
-//             item.classList.add("shows__item--active");
-//         }
-//     });
-// });
 
 showsItems.forEach((item) => {
     item.addEventListener("click", () => {

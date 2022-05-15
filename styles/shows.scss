@@ -127,7 +127,7 @@ iframe {
 
         @include tablet {
             font-size: 2.18rem;
-            padding: 0 0.2rem 3.9rem;
+            padding: 0 0.95rem 3.9rem;
         }
     }
 
@@ -209,7 +209,7 @@ iframe {
         }
 
         @include desktop {
-            width: 8.5rem;
+            width: 9rem;
             font-size: 0.9rem
         }
     }
@@ -232,15 +232,17 @@ iframe {
         width: 7.35rem;
 
         @include desktop {
-            width: 13.5rem;
+            width: 15rem;
         }
     }
 
     &__date-warp,
     &__location-wrap,
     &__venue-wrap {
-        display: flex;
-        flex-wrap: nowrap;
+        @include tablet {
+            display: flex;
+            flex-wrap: nowrap;
+        }
     }
 
     &__button {
@@ -252,6 +254,7 @@ iframe {
         padding: 0.6rem;
         border-radius: 4px;
         box-sizing: border-box;
+        cursor: pointer;
 
         @include tablet {
             margin: 0;
