@@ -12,19 +12,18 @@
 <body>
     <header>
         <nav class="nav">
-            <a href="./index.html">
-                <img class="nav__logo logo" src="./assets/Logo/Logo-bandsite.svg" alt="bandsite logo">
+            <a href="/">
+                <img class="nav__logo logo" src="./assets/logo/logo-bandsite.svg" alt="bandsite logo">
             </a>
             <ul class="nav__list">
-                <li class="nav__list-item nav__list-item--active"><a href="./index.html">Biography</a></li>
-                <li class="nav__list-item"><a href="#">Shows</a></li>
+                <li class="nav__list-item nav__list-item--active"><a href="/">Biography</a></li>
+                <li class="nav__list-item"><a href="./pages/shows.html">Shows</a></li>
             </ul>
         </nav>
         <div class="hero">
             <h1 class="hero__title">The Bees Knees</h1>
         </div>
     </header>
-
 
     <main>
         <article class="bio">
@@ -75,15 +74,38 @@
         <section class="gallery">
             <h2 class="gallery__title">Photo Gallery</h2>
             <div class="gallery__collection">
-                <img src="./assets/Images/Photo-gallery-1.jpg" alt="" class="gallery__img gallery__img1">
-                <img src="./assets/Images/Photo-gallery-2.jpg" alt="" class="gallery__img gallery__img2">
-                <img src="./assets/Images/Photo-gallery-3.jpg" alt="" class="gallery__img gallery__img3">
-                <img src="./assets/Images/Photo-gallery-4.jpg" alt="" class="gallery__img gallery__img4">
-                <img src="./assets/Images/Photo-gallery-5.jpg" alt="" class="gallery__img gallery__img5">
-                <img src="./assets/Images/Photo-gallery-6.jpg" alt="" class="gallery__img gallery__img6">
-                <img src="./assets/Images/Photo-gallery-7.jpg" alt="" class="gallery__img gallery__img7">
-                <img src="./assets/Images/Photo-gallery-8.jpg" alt="" class="gallery__img gallery__img8">
-                <img src="./assets/Images/Photo-gallery-9.jpg" alt="" class="gallery__img gallery__img9">
+                <img src="./assets/images/photo-gallery-1.jpg" alt="gallery__img1" class="gallery__img">
+                <img src="./assets/images/photo-gallery-2.jpg" alt="gallery__img2" class="gallery__img">
+                <img src="./assets/images/photo-gallery-3.jpg" alt="gallery__img3" class="gallery__img">
+                <img src="./assets/images/photo-gallery-4.jpg" alt="gallery__img4" class="gallery__img">
+                <img src="./assets/images/photo-gallery-5.jpg" alt="gallery__img5" class="gallery__img">
+                <img src="./assets/images/photo-gallery-6.jpg" alt="gallery__img6" class="gallery__img">
+                <img src="./assets/images/photo-gallery-7.jpg" alt="gallery__img7" class="gallery__img">
+                <img src="./assets/images/photo-gallery-8.jpg" alt="gallery__img8" class="gallery__img">
+                <img src="./assets/images/photo-gallery-9.jpg" alt="gallery__img9" class="gallery__img">
+            </div>
+        </section>
+
+        <section class="comment">
+            <h2 class="comment__title">Join the Conversation</h2>
+            <div class="comment__section">
+                <div class="comment__post">
+                    <div class="comment__form-avatar avatar"></div>
+                    <form class="comment__form" action="#" method="POST">
+                        <label for="name">name</label>
+                        <input class="comment__form-name" type="text" name="name" id="name"
+                            placeholder="Enter your name">
+                        <label for="comment">comment</label>
+                        <textarea class="comment__form-text" name="comment" id="comment"
+                            placeholder="Add a new comment"></textarea>
+                        <button type="submit" class="comment__submit">comment</button>
+                    </form>
+                </div>
+                <div class="comment__list-wrap">
+                    <ul class="comment__list">
+                        <!-- js li -->
+                    </ul>
+                </div>
             </div>
         </section>
     </main>
@@ -94,13 +116,13 @@
             <h2 class="footer__title">Get in Touch</h2>
             <div class="footer__social">
                 <a href="http://www.instagram.com" target="_blank">
-                    <img src="./assets/Icons/SVG/Icon-instagram.svg" alt="instagram icon" class="footer__social-icon">
+                    <img src="./assets/icons/svg/icon-instagram.svg" alt="instagram icon" class="footer__social-icon">
                 </a>
                 <a href="http://www.facebook.com" target="_blank">
-                    <img src="./assets/Icons/SVG/Icon-facebook.svg" alt="facebook icon" class="footer__social-icon">
+                    <img src="./assets/icons/svg/icon-facebook.svg" alt="facebook icon" class="footer__social-icon">
                 </a>
                 <a href="http://www.twitter.com" target="_blank">
-                    <img src="./assets/Icons/SVG/Icon-twitter.svg" alt="twitter icon" class="footer__social-icon">
+                    <img src="./assets/icons/svg/icon-twitter.svg" alt="twitter icon" class="footer__social-icon">
                 </a>
             </div>
         </div>
@@ -166,12 +188,14 @@
         </div>
 
         <div class="footer__copyright-wrap">
-            <img class="footer__logo logo" src="./assets/Logo/Logo-bandsite.svg" alt="">
+            <img class="footer__logo logo" src="./assets/logo/logo-bandsite.svg" alt="bandsite logo">
             <p class="footer__copyright">
                 Copyright The Bees Knees © 2021 All Rights Reserved
             </p>
         </div>
     </footer>
+
+    <script src="./scripts/index-page.js"></script>
 </body>
 
 </html>

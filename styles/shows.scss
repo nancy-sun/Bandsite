@@ -1,0 +1,266 @@
+@use "./partials/variables" as *;
+@use "./partials/global" as *;
+@use "./partials/typefaces" as *;
+@use "./partials/mixins" as*;
+@use "./partials/reset" as*;
+
+
+.hero {
+    background: linear-gradient($filter-color, $filter-color), url("../assets/Images/hero-shows.jpg");
+    background-position: 0 30%;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    height: 17.2rem;
+
+    @include tablet {
+        background-position: 0 45%;
+        height: 31.5rem;
+    }
+
+    @include desktop {
+        height: 39.5rem;
+        background-position: 0 30%;
+    }
+
+    &__text {
+        font-size: 0.84rem;
+        position: relative;
+        color: $primary-lighter;
+        width: 15rem;
+        top: 1.6rem;
+        left: 0.95rem;
+        line-height: 2rem;
+
+        @include tablet {
+            width: 30rem;
+            font-size: 1.5rem;
+            font-weight: 600;
+            left: 2.2rem;
+            top: 3.5rem;
+        }
+
+        @include desktop {
+            top: 12.3rem;
+            left: 8.1rem;
+        }
+    }
+
+    &__title {
+        font-size: 1.5rem;
+        font-weight: 600;
+        position: relative;
+        color: $primary-lighter;
+        width: 15.2rem;
+        top: 2.1rem;
+        left: 0.95rem;
+        line-height: 2rem;
+        letter-spacing: 0.3px;
+
+        @include tablet {
+            width: 33rem;
+            font-size: 3.65rem;
+            line-height: 4.15rem;
+            top: 4.35rem;
+            left: 2.2rem;
+            letter-spacing: 0.8px;
+        }
+
+        @include desktop {
+            width: 31rem;
+            font-size: 3.5rem;
+            top: 13.2rem;
+            left: 8.1rem;
+            letter-spacing: 2.6px;
+        }
+
+    }
+
+    &__song {
+        position: relative;
+        width: 18rem;
+        top: 3.3rem;
+        left: 0.95rem;
+
+        @include tablet {
+            width: 26.35rem;
+            top: 7.8rem;
+            left: 2.2rem;
+        }
+
+        @include desktop {
+            width: 25.6rem;
+            left: 46rem;
+            top: 5.3rem;
+        }
+    }
+}
+
+iframe {
+    height: 6rem;
+
+    @include tablet {
+        height: 8.5rem;
+    }
+}
+
+.shows {
+    padding: 1.85rem 0 1rem;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+
+    @include tablet {
+        padding: 3rem 1.25rem 2.4rem;
+    }
+
+    @include desktop {
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 3rem 6.7rem 2.4rem 8rem;
+    }
+
+    &__title {
+        padding: 0 0.95rem 0.85rem;
+        font-size: 1.54rem;
+        font-weight: 600;
+
+        @include tablet {
+            font-size: 2.18rem;
+            padding: 0 0.95rem 3.9rem;
+        }
+    }
+
+
+    &__subtitle {
+        color: $primary-light;
+        text-transform: uppercase;
+        font-weight: 500;
+        font-size: 0.6rem;
+        padding-bottom: 0.28rem;
+
+        @include tablet {
+            font-size: 0.75rem;
+            padding-right: 0;
+            display: none; //hide all subtitles at tablet size an up
+        }
+    }
+
+    &__list {
+        @include desktop {
+            padding-top: 3.4rem;
+        }
+    }
+
+    &__item {
+        display: flex;
+        padding: 0.87rem 0.95rem;
+        flex-direction: column;
+        border-bottom: solid 1px $secondary-light;
+        gap: 0.7rem;
+        box-sizing: border-box;
+        cursor: pointer;
+
+        @include tablet {
+            flex-direction: row;
+            justify-content: space-between;
+            gap: 1.5rem;
+            align-items: center;
+            padding: 0.91rem 1.48rem;
+        }
+
+        @include desktop {
+            padding: 0.91rem 1.3rem;
+            width: 50.2rem;
+        }
+
+        &:first-child {
+            & p:nth-of-type(odd) {
+
+                //only display the subtitle of the first list item in tablet size and up
+                @include tablet {
+                    display: block;
+                    position: absolute;
+                    top: 44rem;
+                }
+
+                @include desktop {
+                    top: 49.5rem;
+                }
+            }
+        }
+
+        &:hover {
+            background-color: $secondary-lighter;
+        }
+
+        &--active {
+            background-color: $secondary-light;
+        }
+    }
+
+    &__venue {
+        font-size: 0.8rem;
+        display: inline-block;
+
+        @include tablet {
+            font-size: 0.85rem;
+            width: 6.5rem;
+        }
+
+        @include desktop {
+            width: 9rem;
+            font-size: 0.9rem
+        }
+    }
+
+    &__location {
+        @extend .shows__venue;
+
+        @include tablet {
+            width: 7rem
+        }
+
+        @include desktop {
+            width: 8rem;
+        }
+    }
+
+    &__date {
+        @extend .shows__venue;
+        font-weight: 600;
+        width: 7.35rem;
+
+        @include desktop {
+            width: 15rem;
+        }
+    }
+
+    &__date-warp,
+    &__location-wrap,
+    &__venue-wrap {
+        @include tablet {
+            display: flex;
+            flex-wrap: nowrap;
+        }
+    }
+
+    &__button {
+        background-color: $primary-dark;
+        color: $primary-lighter;
+        text-transform: uppercase;
+        font-size: 0.9rem;
+        font-weight: 600;
+        padding: 0.6rem;
+        border-radius: 4px;
+        box-sizing: border-box;
+        cursor: pointer;
+
+        @include tablet {
+            margin: 0;
+            width: 9.5rem;
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+    }
+}
