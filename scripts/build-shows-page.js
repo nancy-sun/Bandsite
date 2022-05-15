@@ -89,12 +89,22 @@ displayShows(shows);
 
 
 const showsItems = document.querySelectorAll(".shows__item");
-for (let i = 0; i < showsItems.length; i++) {
-    showsItems.addEventListener("click", () => {
-        // showsItem.classList.remove("shows__item--active");
-        showsItems.classList.toggle("shows__item--active");
-    });
-}
+// let lastClickIdx = undefined;
+// showsItems.forEach((item, index) => {
+//     item.addEventListener("click", () => {
+//         if (lastClickIdx !== undefined) {
+//             lastClickIdx = index;
+//             showsItems[lastClickIdx].classList
+//             item.classList.add("shows__item--active");
+//         }
+//     });
+// });
 
-
-
+showsItems.forEach((item) => {
+    item.addEventListener("click", () => {
+        showsItems.forEach((item) => {
+            item.classList.remove("shows__item--active");
+        })
+        item.classList.add("shows__item--active");
+    })
+})

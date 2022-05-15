@@ -626,6 +626,9 @@ a {
 .comment__form-name::placeholder, .comment__form-text::placeholder {
   color: #323232;
 }
+.comment__form-name:focus, .comment__form-text:focus {
+  outline: 1px solid #323232;
+}
 .comment__form-text {
   resize: none;
   height: 3rem;
@@ -636,6 +639,9 @@ a {
     height: 4rem;
     padding: 0.9rem 1.1rem;
   }
+}
+.comment__form--invalid {
+  outline: 1px solid #D22D2D;
 }
 .comment__submit {
   color: #FFF;

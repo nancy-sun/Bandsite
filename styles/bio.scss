@@ -322,6 +322,10 @@
             &::placeholder {
                 color: $primary-dark;
             }
+
+            &:focus {
+                outline: 1px solid $primary-dark;
+            }
         }
 
         &-text {
@@ -334,6 +338,10 @@
                 height: 4rem;
                 padding: 0.9rem 1.1rem;
             }
+        }
+
+        &--invalid {
+            outline: 1px solid $error-color;
         }
     }
 
@@ -402,6 +410,8 @@
 
     &__name {
         font-weight: 600;
+
+
     }
 
     &__time {
