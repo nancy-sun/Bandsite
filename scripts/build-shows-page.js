@@ -87,6 +87,8 @@ function createShow(showsObj) {
     const showsButton = createShowElement("button", "shows__button", "buy tickets");
     showsButton.setAttribute("type", "button");
     showsItem.appendChild(showsButton);
+
+
 };
 
 
