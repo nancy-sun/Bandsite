@@ -26,7 +26,7 @@ const SUBMIT = document.querySelector(".comment__submit");
 const NAME_INPUT = document.querySelector(".comment__form-name");
 const TEXT_INPUT = document.querySelector(".comment__form-text");
 
-const API_KEY = "17b7e77b-c637-4191-8a2d-0901beeff1c3";
+const API_KEY = "a480e6ce-b8d3-4bfe-ba77-02654651ef59";
 const API_KEY_PARAM = "?api_key=" + API_KEY;
 const API_URL = "https://project-1-api.herokuapp.com/comments";
 
@@ -73,16 +73,17 @@ function createCommentDOM(index) {
     const name = createCommentElement("p", "comment__name", commentObj.name);
     info.appendChild(name);
 
+    const infoRight = createCommentElement("div", "comment__info--right");
+    info.appendChild(infoRight);
+
     const timeDiff = calculateTimeElapse(commentObj.timestamp);
     const time = createCommentElement("p", "comment__time", timeDiff);
-    info.appendChild(time);
+    infoRight.appendChild(time);
 
-    const text = createCommentElement("p", "comment__text", commentObj.comment);
-    context.appendChild(text);
 
-    const deleteButton = createCommentElement("button", "comment__delete", "delete")
-    info.appendChild(deleteButton);
 
+    const deleteButton = createCommentElement("button", "comment__delete");
+    infoRight.appendChild(deleteButton);
 
     deleteButton.addEventListener("click", () => {
         const deleteUrl = API_URL + "/" + commentObj.id + API_KEY_PARAM;
@@ -93,26 +94,31 @@ function createCommentDOM(index) {
             alert("delete failed");
         })
     })
+
+    const like = createCommentElement("div", "comment__like");
+    infoRight.appendChild(like);
+
+    const likeButton = createCommentElement("button", "comment__like-button");
+    like.appendChild(likeButton);
+
+    const likeCount = createCommentElement("p", "comment__like-count", commentObj.likes);
+    like.appendChild(likeCount)
+
+    likeButton.addEventListener("click", () => {
+        const likeUrl = API_URL + "/" + commentObj.id + "/like" + API_KEY_PARAM;
+        axios.put(likeUrl).then(() => {
+            commentObj.likes += 1;
+            likeCount.innerText = commentObj.likes;
+        }).catch(() => {
+            alert("like comment failed");
+        })
+    })
+
+    const text = createCommentElement("p", "comment__text", commentObj.comment);
+    context.appendChild(text);
 }
 
 /*form submission*/
-
-//used for displaying comment timestamp in mm/dd/yyyy format
-// function getSubmitDate(commentDate) {
-//     const submitDate = new Date(commentDate);
-//     let month = submitDate.getMonth() + 1;
-//     if (month < 10) {
-//         month = "0" + month;
-//     };
-//     let date = submitDate.getDate();
-//     if (date < 10) {
-//         date = "0" + date;
-//     }
-//     const year = submitDate.getFullYear();
-//     console.log(submitDate);
-//     return month + "/" + date + "/" + year;
-// }
-
 function getAllComments() {
     axios.get(COMMENTS_URL).then((response) => {
         for (let i = 0; i < response.data.length; i++) {
