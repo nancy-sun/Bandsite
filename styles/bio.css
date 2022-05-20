@@ -747,6 +747,7 @@ a {
   display: flex;
   height: 0.7rem;
   align-items: center;
+  gap: 0.2rem;
 }
 .comment__like-button {
   border: none;
@@ -760,6 +761,6 @@ a {
   height: 100%;
 }
 .comment__like-count {
-  font-size: 0.5rem;
+  font-size: 0.55rem;
   font-weight: 600;
 }/*# sourceMappingURL=bio.css.map */
