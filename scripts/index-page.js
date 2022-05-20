@@ -1,6 +1,6 @@
 let comments = []; //empty array to store new comments
 
-//declare unit diff variables for comment timestamp
+/* declare unit diff variables for comment timestamp */
 const SEC_DIFF = 1;
 const MIN_DIFF = SEC_DIFF * 60;
 const HOUR_DIFF = MIN_DIFF * 60;
@@ -17,19 +17,14 @@ const UNIT_DIFF_MAP = new Map(
     [SEC_DIFF, "sec"]]
 )
 
-const COMMENT_UL = document.querySelector(".comment__list");
-
-const FORM = document.querySelector(".comment__form");
-
-const SUBMIT = document.querySelector(".comment__submit");
-
-const NAME_INPUT = document.querySelector(".comment__form-name");
-const TEXT_INPUT = document.querySelector(".comment__form-text");
+const CommentUlElem = document.querySelector(".comment__list");
+const formElem = document.querySelector(".comment__form");
+const nameInputElem = document.querySelector(".comment__form-name");
+const textInputElem = document.querySelector(".comment__form-text");
 
 const API_KEY = "a480e6ce-b8d3-4bfe-ba77-02654651ef59";
 const API_KEY_PARAM = "?api_key=" + API_KEY;
 const API_URL = "https://project-1-api.herokuapp.com/comments";
-
 const COMMENTS_URL = API_URL + API_KEY_PARAM;
 
 run();
@@ -41,7 +36,7 @@ function run() {
 
 function displayComments() {
     for (let i = 0; i < comments.length; i++) {
-        createCommentDOM(i);
+        createCommentDom(i);
     }
 };
 
@@ -52,10 +47,10 @@ function createCommentElement(tag, className, text = "") {
     return item;
 }
 
-function createCommentDOM(index) {
+function createCommentDom(index) {
     let commentObj = comments[index];
     const commentBox = createCommentElement("li", "comment__box");
-    COMMENT_UL.appendChild(commentBox);
+    CommentUlElem.appendChild(commentBox);
 
     const avatar = createCommentElement("div", "comment__avatar");
     avatar.classList.add("avatar");
@@ -79,8 +74,6 @@ function createCommentDOM(index) {
     const timeDiff = calculateTimeElapse(commentObj.timestamp);
     const time = createCommentElement("p", "comment__time", timeDiff);
     infoRight.appendChild(time);
-
-
 
     const deleteButton = createCommentElement("button", "comment__delete");
     infoRight.appendChild(deleteButton);
@@ -118,7 +111,7 @@ function createCommentDOM(index) {
     context.appendChild(text);
 }
 
-/*form submission*/
+//get comments from api, store in comments arr and display
 function getAllComments() {
     axios.get(COMMENTS_URL).then((response) => {
         for (let i = 0; i < response.data.length; i++) {
@@ -133,13 +126,13 @@ function getAllComments() {
     })
 }
 
-//create a form listener and post a comment
+//create a form listener for new comment and post a comment
 function createFormListener() {
-    FORM.addEventListener("submit", function (event) {
+    formElem.addEventListener("submit", function (event) {
         event.preventDefault();
 
-        NAME_INPUT.classList.remove("comment__form--invalid");
-        TEXT_INPUT.classList.remove("comment__form--invalid");
+        nameInputElem.classList.remove("comment__form--invalid");
+        textInputElem.classList.remove("comment__form--invalid");
 
         const newComment = {
             name: event.target.name.value,
@@ -154,23 +147,23 @@ function postComment(newComment) {
     if (newComment.name && newComment.comment) {
         axios.post(COMMENTS_URL, newComment).then(result => {
             comments.unshift(result.data);
-            FORM.reset();
-            COMMENT_UL.innerText = ""; //remove comments displayed previously
+            formElem.reset();
+            CommentUlElem.innerText = ""; //remove comments displayed previously
             displayComments(comments.slice(0, 10)); //limit comments displayed on page to 10
         }).catch(error => {
             alert(error);
         })
     } else if (!newComment.name && newComment.comment) {
-        NAME_INPUT.classList.add("comment__form--invalid");
+        nameInputElem.classList.add("comment__form--invalid");
     } else if (!newComment.comment && newComment.name) {
-        TEXT_INPUT.classList.add("comment__form--invalid");
+        textInputElem.classList.add("comment__form--invalid");
     } else {
-        NAME_INPUT.classList.add("comment__form--invalid");
-        TEXT_INPUT.classList.add("comment__form--invalid");
+        nameInputElem.classList.add("comment__form--invalid");
+        textInputElem.classList.add("comment__form--invalid");
     }
 }
 
-//calculate time elapsed between comment and now
+//calculate time elapsed between comment posted and now
 function calculateTimeElapse(commentDate) {
     let now = new Date().getTime() / 1000; //timestamp now in secs
     let commentTimestamp = new Date(commentDate).getTime() / 1000; //timestamp of comment in secs
@@ -185,7 +178,7 @@ function calculateTimeElapse(commentDate) {
     return "Just Now";
 }
 
-//to get time diff based on units
+//to get time diff based on time intervals
 function getTimeDiffInStr(timeDiffInSec, unit, unitStr) {
     let unitsDiffInSec = timeDiffInSec - unit;
     if (unitsDiffInSec > 0) {

@@ -732,33 +732,25 @@ a {
     line-height: 1.4rem;
   }
 }
-.comment__delete {
+.comment__delete, .comment__like-button {
   border: none;
+  cursor: pointer;
   background-image: url("../assets/icons/svg/icon-delete.svg");
   background-color: transparent;
-  cursor: pointer;
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
-  width: 0.7rem;
-  height: 0.6rem;
+  width: 1rem;
+  height: 1rem;
 }
 .comment__like {
   display: flex;
-  height: 0.7rem;
+  height: 1rem;
   align-items: center;
   gap: 0.2rem;
 }
 .comment__like-button {
-  border: none;
   background-image: url("../assets/icons/svg/icon-like.svg");
-  background-color: transparent;
-  cursor: pointer;
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-  width: 0.7rem;
-  height: 100%;
 }
 .comment__like-count {
   font-size: 0.55rem;

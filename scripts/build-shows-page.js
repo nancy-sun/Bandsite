@@ -1,12 +1,12 @@
 const API_URL = "https://project-1-api.herokuapp.com/showdates/?api_key=17b7e77b-c637-4191-8a2d-0901beeff1c3";
 
-const SHOWS_UL = document.querySelector(".shows__list");
+const showsUlElem = document.querySelector(".shows__list");
 
 getShowList();
 
 function displayShows(showsArr) {
     showsArr.forEach((show) => {
-        createShow(show);
+        createShowDom(show);
     })
 };
 
@@ -17,9 +17,9 @@ function createShowElement(tag, className, text = "") {
     return item;
 }
 
-function createShow(showsObj) {
+function createShowDom(showsObj) {
     const showsItem = createShowElement("li", "shows__item");
-    SHOWS_UL.appendChild(showsItem);
+    showsUlElem.appendChild(showsItem);
 
     const showsDateWrap = createShowElement("div", "shows__date-wrap");
     showsItem.appendChild(showsDateWrap);
@@ -68,7 +68,7 @@ function getShowList() {
                 item.classList.add("shows__item--active");
             })
         })
-    }).catch(function (error) {
-        console.log(error);
+    }).catch((error) => {
+        alert(error);
     });
 }
