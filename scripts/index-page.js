@@ -1,81 +1,45 @@
-const comments = [
-    {
-        name: "Connor Walton",
-        timestamp: new Date().setFullYear(2021, 2 - 1, 17),
-        text: "This is art. This is inexplicable magic expressed in the purest way, everything that makes up this majestic work deserves reverence. Let us appreciate this for what it is and what it contains.",
-        avatar: "./assets/images/mohan-muruge.jpg" //url path
-    },
-    {
-        name: "Emilie Beach",
-        timestamp: new Date().setFullYear(2021, 1 - 1, 9),
-        text: "I feel blessed to have seen them in person. What a show! They were just perfection. If there was one day of my life I could relive, this would be it. What an incredible day.",
-        avatar: "#" //url path
-    },
-    {
-        name: "Miles Acosta",
-        timestamp: new Date().setFullYear(2020, 12 - 1, 20),
-        text: "I can't stop listening. Every time I hear one of their songs - the vocals - it gives me goosebumps. Shivers straight down my spine. What a beautiful expression of creativity. Can't get enough.",
-        avatar: "#" //url path
-    }
-]
+let comments = []; //empty array to store new comments
 
-//declare unit diff variables for comment timestamp
-const secDiff = 1;
-const minDiff = secDiff * 60;
-const hourDiff = minDiff * 60;
-const dayDiff = hourDiff * 24;
-const monthDiff = dayDiff * 30;
-const yearDiff = monthDiff * 12;
+/* declare unit diff variables for comment timestamp */
+const SEC_DIFF = 1;
+const MIN_DIFF = SEC_DIFF * 60;
+const HOUR_DIFF = MIN_DIFF * 60;
+const DAY_DIFF = HOUR_DIFF * 24;
+const MONTH_DIFF = DAY_DIFF * 30;
+const YEAR_DIFF = MONTH_DIFF * 12;
 
-//iterate unit diff over an array
-const diffs = [
-    {
-        unit: yearDiff,
-        unitString: "year"
-    },
-    {
-        unit: monthDiff,
-        unitString: "month"
-    },
-    {
-        unit: dayDiff,
-        unitString: "day"
-    },
-    {
-        unit: hourDiff,
-        unitString: "hour"
-    },
-    {
-        unit: minDiff,
-        unitString: "min"
-    },
-    {
-        unit: secDiff,
-        unitString: "sec"
-    }
-];
-
-/* to iterate over a map
-const diffs = new Map(
-    [[yearDiff, "year"],
-    [monthDiff, "month"],
-    [dayDiff, "day"],
-    [hourDiff, "hour"],
-    [minDiff, "min"],
-    [secDiff, "sec"]]
+const UNIT_DIFF_MAP = new Map(
+    [[YEAR_DIFF, "year"],
+    [MONTH_DIFF, "month"],
+    [DAY_DIFF, "day"],
+    [HOUR_DIFF, "hour"],
+    [MIN_DIFF, "min"],
+    [SEC_DIFF, "sec"]]
 )
-*/
 
-function displayComments(commentsArr) {
-    for (let i = 0; i < commentsArr.length; i++) {
-        createCommentBox(commentsArr[i]);
+const CommentUlElem = document.querySelector(".comment__list");
+const formElem = document.querySelector(".comment__form");
+const nameInputElem = document.querySelector(".comment__form-name");
+const textInputElem = document.querySelector(".comment__form-text");
+
+const API_KEY = "a480e6ce-b8d3-4bfe-ba77-02654651ef59";
+const API_KEY_PARAM = "?api_key=" + API_KEY;
+const API_URL = "https://project-1-api.herokuapp.com/comments";
+const COMMENTS_URL = API_URL + API_KEY_PARAM;
+
+run();
+
+function run() {
+    getAllComments();
+    createFormListener();
+}
+
+function displayComments() {
+    for (let i = 0; i < comments.length; i++) {
+        createCommentDom(i);
     }
 };
 
-//grab the parent <ul> element
-const commentList = document.querySelector(".comment__list");
-
-//create element and give it a class
 function createCommentElement(tag, className, text = "") {
     const item = document.createElement(tag);
     item.classList.add(className);
@@ -83,13 +47,16 @@ function createCommentElement(tag, className, text = "") {
     return item;
 }
 
-function createCommentBox(commentObj) {
+function createCommentDom(index) {
+    let commentObj = comments[index];
     const commentBox = createCommentElement("li", "comment__box");
-    commentList.appendChild(commentBox);
+    CommentUlElem.appendChild(commentBox);
 
     const avatar = createCommentElement("div", "comment__avatar");
     avatar.classList.add("avatar");
-    avatar.style.backgroundImage = `url(${commentObj.avatar})`;
+    if (commentObj.avatar) {
+        avatar.style.backgroundImage = `url(${commentObj.avatar})`;
+    }
     commentBox.appendChild(avatar);
 
     const context = createCommentElement("div", "comment__context");
@@ -101,108 +68,117 @@ function createCommentBox(commentObj) {
     const name = createCommentElement("p", "comment__name", commentObj.name);
     info.appendChild(name);
 
+    const infoRight = createCommentElement("div", "comment__info--right");
+    info.appendChild(infoRight);
+
     const timeDiff = calculateTimeElapse(commentObj.timestamp);
     const time = createCommentElement("p", "comment__time", timeDiff);
-    info.appendChild(time);
+    infoRight.appendChild(time);
 
-    const text = createCommentElement("p", "comment__text", commentObj.text);
+    const deleteButton = createCommentElement("button", "comment__delete");
+    infoRight.appendChild(deleteButton);
+
+    deleteButton.addEventListener("click", () => {
+        const deleteUrl = API_URL + "/" + commentObj.id + API_KEY_PARAM;
+        axios.delete(deleteUrl).then(() => {
+            commentBox.remove();
+            comments.splice(index, 1);
+        }).catch(() => {
+            alert("delete failed");
+        })
+    })
+
+    const like = createCommentElement("div", "comment__like");
+    infoRight.appendChild(like);
+
+    const likeButton = createCommentElement("button", "comment__like-button");
+    like.appendChild(likeButton);
+
+    const likeCount = createCommentElement("p", "comment__like-count", commentObj.likes);
+    like.appendChild(likeCount)
+
+    likeButton.addEventListener("click", () => {
+        const likeUrl = API_URL + "/" + commentObj.id + "/like" + API_KEY_PARAM;
+        axios.put(likeUrl).then(() => {
+            commentObj.likes += 1;
+            likeCount.innerText = commentObj.likes;
+        }).catch(() => {
+            alert("like comment failed");
+        })
+    })
+
+    const text = createCommentElement("p", "comment__text", commentObj.comment);
     context.appendChild(text);
 }
 
-//display default comments when page first loads
-displayComments(comments);
-
-
-//form submission
-
-//grab the <form>
-const form = document.querySelector(".comment__form");
-
-//grab the submit button
-const submit = document.querySelector(".comment__submit");
-
-//used for displaying comment timestamp in mm/dd/yyyy format
-function getSubmitDate(commentDate) {
-    const submitDate = new Date(commentDate);
-    let month = submitDate.getMonth() + 1;
-    if (month < 10) {
-        month = "0" + month;
-    };
-    let date = submitDate.getDate();
-    if (date < 10) {
-        date = "0" + date;
-    }
-    const year = submitDate.getFullYear();
-    console.log(submitDate);
-    return month + "/" + date + "/" + year;
+//get comments from api, store in comments arr and display
+function getAllComments() {
+    axios.get(COMMENTS_URL).then((response) => {
+        for (let i = 0; i < response.data.length; i++) {
+            comments.unshift(response.data[i]);
+        }
+        comments.sort((a, b) => {
+            return a.timestamp > b.timestamp;
+        });
+        displayComments(comments);
+    }).catch((error) => {
+        alert(error);
+    })
 }
 
-//grab input boxes in the form
-const nameInput = document.querySelector(".comment__form-name");
-const textInput = document.querySelector(".comment__form-text");
+//create a form listener for new comment and post a comment
+function createFormListener() {
+    formElem.addEventListener("submit", function (event) {
+        event.preventDefault();
 
+        nameInputElem.classList.remove("comment__form--invalid");
+        textInputElem.classList.remove("comment__form--invalid");
 
-//when submit form
-form.addEventListener("submit", function (event) {
-    event.preventDefault();
+        const newComment = {
+            name: event.target.name.value,
+            comment: event.target.comment.value,
+        };
+        postComment(newComment);
+    })
+}
 
-    nameInput.classList.remove("comment__form--invalid");
-    textInput.classList.remove("comment__form--invalid");
-
-    let submitTime = new Date(); //grab the timestamp of submission
-
-    const newComment = {
-        name: event.target.name.value,
-        timestamp: submitTime,
-        text: event.target.comment.value,
-        avatar: "#" //url path for avatar
-    };
-
-    //validate form submission and style error state
-    if (newComment.name && newComment.text) {
-        comments.unshift(newComment);
-        form.reset();
-    } else if (!newComment.name && newComment.text) {
-        nameInput.classList.add("comment__form--invalid");
-    } else if (!newComment.text && newComment.name) {
-        textInput.classList.add("comment__form--invalid");
+//this function validates and posts comment
+function postComment(newComment) {
+    if (newComment.name && newComment.comment) {
+        axios.post(COMMENTS_URL, newComment).then(result => {
+            comments.unshift(result.data);
+            formElem.reset();
+            CommentUlElem.innerText = ""; //remove comments displayed previously
+            displayComments(comments.slice(0, 10)); //limit comments displayed on page to 10
+        }).catch(error => {
+            alert(error);
+        })
+    } else if (!newComment.name && newComment.comment) {
+        nameInputElem.classList.add("comment__form--invalid");
+    } else if (!newComment.comment && newComment.name) {
+        textInputElem.classList.add("comment__form--invalid");
     } else {
-        nameInput.classList.add("comment__form--invalid");
-        textInput.classList.add("comment__form--invalid");
+        nameInputElem.classList.add("comment__form--invalid");
+        textInputElem.classList.add("comment__form--invalid");
     }
+}
 
-    commentList.innerText = ""; //remove comments displayed previously
-    displayComments(comments.slice(0, 10)); //limit comments displayed on page to 10
-});
-
-
-//functions use for diving deep timestamp format for comments
-
-//calculate time elapsed between comment and now
+//calculate time elapsed between comment posted and now
 function calculateTimeElapse(commentDate) {
     let now = new Date().getTime() / 1000; //timestamp now in secs
     let commentTimestamp = new Date(commentDate).getTime() / 1000; //timestamp of comment in secs
     let timeDiffInSec = now - commentTimestamp;
 
-    for (let i = 0; i < diffs.length; i++) {
-        let timeElapsed = getTimeDiffInStr(timeDiffInSec, diffs[i].unit, diffs[i].unitString);
-        if (timeElapsed) {
-            return timeElapsed;
-        }
-    }
-    return "Just Now";
-
-    /* iterate over a map
-    for (const [unit, unitStr] of diffs) {
+    for (const [unit, unitStr] of UNIT_DIFF_MAP) {
         let timeElapsed = getTimeDiffInStr(timeDiffInSec, unit, unitStr);
         if (timeElapsed) {
             return timeElapsed;
         }
     }
-    */
+    return "Just Now";
 }
 
-//to get time diff based on units
+//to get time diff based on time intervals
 function getTimeDiffInStr(timeDiffInSec, unit, unitStr) {
     let unitsDiffInSec = timeDiffInSec - unit;
     if (unitsDiffInSec > 0) {
@@ -210,3 +186,4 @@ function getTimeDiffInStr(timeDiffInSec, unit, unitStr) {
         return `${units} ${unitStr}${units > 1 ? "s" : ""} ago`;
     }
 }
+

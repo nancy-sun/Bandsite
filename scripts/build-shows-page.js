@@ -1,46 +1,14 @@
-//shows
-const shows = [
-    {
-        date: "Mon Sept 06 2021",
-        venue: "Ronald Lane",
-        location: "San Francisco, CA"
-    },
-    {
-        date: "Tue Sept 21 2021",
-        venue: "Pier 3 East",
-        location: "San Francisco, CA"
-    },
-    {
-        date: "Fri Oct 15 2021",
-        venue: "View Lounge",
-        location: "San Francisco, CA"
-    },
-    {
-        date: "Sat Nov 06 2021",
-        venue: "Hyatt Agency",
-        location: "San Francisco, CA"
-    },
-    {
-        date: "Fri Nov 26 2021",
-        venue: "Moscow Center",
-        location: "San Francisco, CA"
-    },
-    {
-        date: "Wed Dec 15 2021",
-        venue: "Press Club",
-        location: "San Francisco, CA"
-    }
-];
+const API_URL = "https://project-1-api.herokuapp.com/showdates/?api_key=17b7e77b-c637-4191-8a2d-0901beeff1c3";
+
+const showsUlElem = document.querySelector(".shows__list");
+
+getShowList();
 
 function displayShows(showsArr) {
-    for (let i = 0; i < showsArr.length; i++) {
-        createShow(showsArr[i]);
-    }
+    showsArr.forEach((show) => {
+        createShowDom(show);
+    })
 };
-
-
-//grab the parent <ul>
-const showsList = document.querySelector(".shows__list");
 
 function createShowElement(tag, className, text = "") {
     const item = document.createElement(tag);
@@ -49,9 +17,9 @@ function createShowElement(tag, className, text = "") {
     return item;
 }
 
-function createShow(showsObj) {
+function createShowDom(showsObj) {
     const showsItem = createShowElement("li", "shows__item");
-    showsList.appendChild(showsItem);
+    showsUlElem.appendChild(showsItem);
 
     const showsDateWrap = createShowElement("div", "shows__date-wrap");
     showsItem.appendChild(showsDateWrap);
@@ -59,7 +27,8 @@ function createShow(showsObj) {
     const showsDateTitle = createShowElement("p", "shows__subtitle", "date");
     showsDateWrap.appendChild(showsDateTitle);
 
-    const showsDate = createShowElement("p", "shows__date", showsObj.date);
+    const date = new Date(JSON.parse(showsObj.date));
+    const showsDate = createShowElement("p", "shows__date", date.toDateString());
     showsDateWrap.appendChild(showsDate);
 
     const showsVenueWrap = createShowElement("div", "shows__venue-wrap");
@@ -68,7 +37,7 @@ function createShow(showsObj) {
     const showsVenueTitle = createShowElement("p", "shows__subtitle", "venue");
     showsVenueWrap.appendChild(showsVenueTitle);
 
-    const showsVenue = createShowElement("p", "shows__venue", showsObj.venue);
+    const showsVenue = createShowElement("p", "shows__venue", showsObj.place);
     showsVenueWrap.appendChild(showsVenue);
 
     const showsLocationWrap = createShowElement("div", "shows__location-wrap");
@@ -85,16 +54,21 @@ function createShow(showsObj) {
     showsItem.appendChild(showsButton);
 };
 
-displayShows(shows);
 
-//grab all the shows <li> in a node list
-const showsItems = document.querySelectorAll(".shows__item");
+function getShowList() {
+    axios.get(API_URL).then((response) => {
+        displayShows(response.data);
+        const showsItems = document.querySelectorAll(".shows__item");
 
-showsItems.forEach((item) => {
-    item.addEventListener("click", () => {
         showsItems.forEach((item) => {
-            item.classList.remove("shows__item--active");
+            item.addEventListener("click", () => {
+                showsItems.forEach((item) => {
+                    item.classList.remove("shows__item--active");
+                })
+                item.classList.add("shows__item--active");
+            })
         })
-        item.classList.add("shows__item--active");
-    })
-})
+    }).catch((error) => {
+        alert(error);
+    });
+}

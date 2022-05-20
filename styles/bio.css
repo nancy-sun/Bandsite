@@ -702,13 +702,19 @@ a {
 }
 .comment__info {
   display: flex;
-  justify-content: space-between;
   font-size: 0.8rem;
+  justify-content: space-between;
+  align-items: center;
 }
 @media (min-width: 768px) {
   .comment__info {
     font-size: 0.88rem;
   }
+}
+.comment__info--right {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
 }
 .comment__name {
   font-weight: 600;
@@ -725,4 +731,28 @@ a {
     font-size: 0.88rem;
     line-height: 1.4rem;
   }
+}
+.comment__delete, .comment__like-button {
+  border: none;
+  cursor: pointer;
+  background-image: url("../assets/icons/svg/icon-delete.svg");
+  background-color: transparent;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 1rem;
+  height: 1rem;
+}
+.comment__like {
+  display: flex;
+  height: 1rem;
+  align-items: center;
+  gap: 0.2rem;
+}
+.comment__like-button {
+  background-image: url("../assets/icons/svg/icon-like.svg");
+}
+.comment__like-count {
+  font-size: 0.55rem;
+  font-weight: 600;
 }/*# sourceMappingURL=bio.css.map */
